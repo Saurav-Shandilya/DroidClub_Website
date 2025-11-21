@@ -10,6 +10,7 @@ import disha from "../assets/images/team/Disha.jpg";
 import shivam from "../assets/images/team/shivam.jpg";
 import sohum from "../assets/images/team/sohum.png";
 import Chaitanya from "../assets/images/team/Chaitanya.jpeg";
+import sakshi from "../assets/images/team/sakshi.png";
 
 export default function Team() {
 
@@ -61,7 +62,7 @@ export default function Team() {
     { name: "Madhav Bacharwar", role: "Executive Member", img: "https://via.placeholder.com/200" },
     { name: "Ajitmani Gupta", role: "Executive Member", img: "https://via.placeholder.com/200" },
     { name: "Alex Vyas", role: "Executive Member", img: "https://via.placeholder.com/200" },
-    { name: "Sakshi", role: "Executive Member", img: "https://via.placeholder.com/200" },
+    { name: "Sakshi", role: "Executive Member", img: sakshi },
     { name: "Shravya Pandey", role: "Executive Member", img: "https://via.placeholder.com/200" },
     { name: "Ashi Nauhwar", role: "Executive Member", img: "https://via.placeholder.com/200" },
     { name: "Aditya Rautela", role: "Executive Member", img: "https://via.placeholder.com/200" },
