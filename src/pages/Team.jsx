@@ -3,7 +3,7 @@ import p from "../assets/images/team/Aditya.jpg";
 import vp from "../assets/images/team/harsh.jpeg";
 import saurav from "../assets/images/team/saurav.jpeg";
 import anshini from "../assets/images/team/Anshini.jpg";
-import akshat from "../assets/images/team/akshat.png";
+import akshat from "../assets/images/team/Akshat.png";
 import sumit from "../assets/images/team/sumit.jpg";
 import isha from "../assets/images/team/isha.png";
 import disha from "../assets/images/team/disha.jpg";
