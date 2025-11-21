@@ -1,3 +1,4 @@
+import { useState } from "react";
 import codepunk from "../assets/images/about/codepunk.jpg";
 import groupImg from "../assets/images/about/group.jpg";
 import punk2 from "../assets/images/event/codepunk2.jpg";
@@ -8,97 +9,133 @@ import school1sub2 from "../assets/images/event/school1sub2.jpg";
 import work1 from "../assets/images/event/workshop.jpg";
 import work2 from "../assets/images/event/workshop1.jpg";
 import workshopb from "../assets/images/event/workshopb.jpg";
+import codepunk2 from "../assets/images/home/3.png";
+import robo from "../assets/images/home/4.png";
+import line from "../assets/images/home/5.png";
+import mech from "../assets/images/home/6.png";
 
 export default function Events() {
+  const [previewImg, setPreviewImg] = useState(null);
+
   const eventsData = {
-    hackathons: [
+    upcoming: [
+      { title: "CodePunk <V2.0/>", cover: codepunk2 },
+      { title: "TechFest RoboWar", cover: robo },
+      { title: "TechFest LineTracing", cover: line },
+      { title: "TechFest Machathon", cover: mech },
+    ],
+
+    completed: [
       {
         title: "<CodePunk V1.0/>",
         year: "2024",
-        cover:
-          codepunk,
+        cover: codepunk,
         description:
-          "An intense 36-hour coding sprint where students collaborated to build AI-driven and IoT-based prototypes. Mentors from various industries guided participants throughout the challenge.",
-        gallery: [
-          groupImg,
-          punk2,
-          punk3,
-        ],
+          "A hackathon where participants built AI-powered tools, IoT systems, and automation prototypes.",
+        gallery: [groupImg, punk2, punk3],
       },
-    ],
-    workshops: [
       {
-        title: "IOT Workshop",
+        title: "IoT Workshop",
         year: "2024",
-        cover:
-          workshopb,
+        cover: workshopb,
         description:
-          "A hands-on workshop of IoT fundamentals with collaboration, and real project .",
-        gallery: [
-          work2,
-          work1,
-        ],
+          "Hands-on training where students built IoT circuits, explored ESP32, and deployed cloud-connected projects.",
+        gallery: [work2, work1],
       },
-    ],
-    schoolVisits: [
       {
-        title: "Tech Awareness Drive – Mount Hill Mathura",
+        title: "School Tech Awareness Drive",
         year: "2024",
-        cover:
-          school1,
+        cover: school1,
         description:
-          "Our team visited DPS Mathura to teach school students about robotics, coding fundamentals, and cyber safety.",
-        gallery: [
-          school1sub,
-          school1sub2,
-        ],
+          "We visited schools to introduce students to robotics, IoT, and cyber safety through live demos.",
+        gallery: [school1sub, school1sub2],
       },
-      
     ],
   };
 
-  const Section = ({ title, data }) => (
+  const UpcomingSection = ({ title, data }) => (
     <div className="mb-20">
       <h2 className="text-4xl font-bold text-[#9D4EDD] mb-10">{title}</h2>
 
-      {data.map((event, index) => (
-        <div
-          key={index}
-          className="mb-16 bg-[#1a1a24] border border-[#9D4EDD]/20 p-6 rounded-2xl shadow-lg"
-        >
-          {/* COVER IMAGE */}
-          <img
-            src={event.cover}
-            className="w-full h-64 object-cover rounded-xl mb-6"
-            alt="Event"
-          />
+      {/* ONLY COVER + TITLE */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {data.map((event, index) => (
+          <div
+            key={index}
+            className="bg-[#1a1a24] border border-[#9D4EDD]/20 rounded-2xl shadow-xl p-5 hover:border-[#9D4EDD]/60 transition"
+          >
+            {/* Cover Image */}
+            <div className="relative overflow-hidden rounded-xl group">
+              <img
+                src={event.cover}
+                className="w-full h-56 object-cover rounded-xl group-hover:scale-110 transition duration-500"
+                alt="Event Cover"
+              />
+              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition"></div>
+            </div>
 
-          {/* TITLE & DESCRIPTION */}
-          <h3 className="text-2xl font-semibold mb-2">
-            {event.title} –{" "}
-            <span className="text-[#9D4EDD] font-bold">{event.year}</span>
-          </h3>
-
-          <p className="text-gray-300 mb-6">{event.description}</p>
-
-          {/* MINI GALLERY */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {event.gallery.map((img, i) => (
-              <div
-                key={i}
-                className="relative group overflow-hidden rounded-xl border border-[#9D4EDD]/20"
-              >
-                <img
-                  src={img}
-                  alt="event-img"
-                  className="w-full h-40 object-cover group-hover:scale-110 transition duration-500"
-                />
-                <div className="absolute inset-0 bg-[#9D4EDD]/20 opacity-0 group-hover:opacity-100 transition"></div>
-              </div>
-            ))}
+            <h3 className="text-2xl font-bold mt-4">
+              {event.title}
+              <span className="block text-[#9D4EDD] text-lg font-semibold mt-1">
+                Coming Soon
+              </span>
+            </h3>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+    </div>
+  );
+
+  const CompletedSection = ({ title, data }) => (
+    <div className="mb-20">
+      <h2 className="text-4xl font-bold text-[#9D4EDD] mb-10">{title}</h2>
+
+      {/* COMPLETED EVENTS WITH FULL DETAILS */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {data.map((event, index) => (
+          <div
+            key={index}
+            className="bg-[#1a1a24] border border-[#9D4EDD]/20 rounded-2xl shadow-xl p-5 hover:border-[#9D4EDD]/60 transition"
+          >
+            {/* Cover Image */}
+            <div className="relative overflow-hidden rounded-xl group">
+              <img
+                src={event.cover}
+                className="w-full h-56 object-cover rounded-xl group-hover:scale-110 transition duration-500"
+                alt="Event Cover"
+              />
+              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition"></div>
+            </div>
+
+            <h3 className="text-2xl font-bold mt-4">
+              {event.title}{" "}
+              <span className="text-[#9D4EDD] text-lg font-semibold">
+                ({event.year})
+              </span>
+            </h3>
+
+            <p className="text-gray-300 text-sm mt-3 mb-5">
+              {event.description}
+            </p>
+
+            {/* Mini Gallery */}
+            <div className="grid grid-cols-3 gap-3">
+              {event.gallery.map((img, i) => (
+                <div
+                  key={i}
+                  onClick={() => setPreviewImg(img)}
+                  className="relative group overflow-hidden rounded-lg border border-[#9D4EDD]/20 cursor-pointer hover:border-[#9D4EDD] transition"
+                >
+                  <img
+                    src={img}
+                    className="w-full h-24 object-cover group-hover:scale-110 transition duration-500"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 
@@ -108,15 +145,26 @@ export default function Events() {
         Our <span className="text-[#9D4EDD]">Events</span>
       </h1>
 
-      <p className="text-gray-400 text-center max-w-2xl mx-auto mb-16"><i>
-        Explore our hackathons, skill-building workshops, and impactful school
-        outreach programs.</i>
+      <p className="text-gray-400 text-center max-w-2xl mx-auto mb-16 italic">
+        Explore our upcoming and completed events.
       </p>
 
-      {/* RENDERING SECTIONS */}
-      <Section title="Hackathons" data={eventsData.hackathons} />
-      <Section title="Workshops" data={eventsData.workshops} />
-      <Section title="School Visits" data={eventsData.schoolVisits} />
+      {/* UPDATED SECTIONS */}
+      <UpcomingSection title="Upcoming Events" data={eventsData.upcoming} />
+      <CompletedSection title="Completed Events" data={eventsData.completed} />
+
+      {/* Preview Modal */}
+      {previewImg && (
+        <div
+          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+          onClick={() => setPreviewImg(null)}
+        >
+          <img
+            src={previewImg}
+            className="max-w-3xl max-h-[80vh] rounded-2xl shadow-xl border border-[#9D4EDD]"
+          />
+        </div>
+      )}
     </div>
   );
 }

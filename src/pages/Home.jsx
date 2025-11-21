@@ -1,9 +1,14 @@
-import { ArrowRight, Users, Star, Medal, Sparkles } from "lucide-react";
+import { ArrowRight, Users, Star } from "lucide-react";
 import e1 from "../assets/images/about/e1.jpg";
 import e2 from "../assets/images/about/e2.jpg";
 import e3 from "../assets/images/about/e3.jpg";
 import e4 from "../assets/images/about/e4.jpg";
 import e5 from "../assets/images/about/school.jpg";
+import mentor from "../assets/images/home/toshit.png";
+import codepunk2 from "../assets/images/home/3.png";
+import robo from "../assets/images/home/4.png";
+import line from "../assets/images/home/5.png";
+import mech from "../assets/images/home/6.png";
 import e6 from "../assets/images/about/workshop.jpg";
 import { Link } from "react-router-dom";
 import p from "../assets/images/about/aditya.jpg";
@@ -44,9 +49,9 @@ export default function Home() {
             <span className="block text-white">DROID CLUB</span>
           </h1>
 
-          <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mt-6">
+          <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mt-6"><i>
             The official technical club of GLA University — where innovation meets teamwork,
-            ideas become real projects, and students grow into leaders.
+            ideas become real projects, and students grow into leaders.</i>
           </p>
 
           <Link
@@ -140,6 +145,42 @@ export default function Home() {
       </section>
 
 
+
+      {/* ================================================= UPCOMING EVENTS ================================================= */}
+      <section className="py-24 px-6 max-w-6xl mx-auto">
+        <h2 className="text-4xl font-extrabold mb-12 text-center">
+          Upcoming <span className="text-[#9D4EDD]">Events</span>
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-10">
+          {[codepunk2, robo, line, mech].map((i) => (
+            <div key={i}
+              className="p-4 rounded-2xl bg-[#1c1c24] border border-white/10 hover:border-[#9D4EDD] transition"
+            >
+              <img
+                src={i}
+                className="rounded-xl h-52 w-full object-cover mb-4"
+              />
+              <h4 className="text-xl font-bold">Event Coming Soon</h4>
+              <p className="text-gray-400 text-sm mt-2">
+                Stay tuned for announcements.
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-10">
+          <Link
+            to="/events"
+            className="px-8 py-3 rounded-full bg-[#9D4EDD] hover:bg-[#7B2CBF] transition font-bold"
+          >
+            View All Events
+          </Link>
+        </div>
+      </section>
+
+
+
       {/* ================================================= MENTOR SECTION ================================================= */}
       <section className="py-24 px-6 max-w-6xl mx-auto">
         <h2 className="text-4xl font-extrabold mb-10">
@@ -149,12 +190,12 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
 
           <img
-            src={e1}
+            src={mentor}
             className="rounded-3xl w-full h-[350px] object-cover shadow-[0_0_40px_rgba(157,78,221,0.5)]"
           />
 
           <div>
-            <h3 className="text-3xl font-bold mb-4">Prof. Toshit Sir</h3>
+            <h3 className="text-3xl font-bold mb-4">Toshit Jain</h3>
             <p className="text-gray-300 leading-relaxed text-lg">
               The guiding force behind the DROID Club — providing vision, academic support,
               direction, leadership guidance and helping the club grow year after year.
@@ -171,6 +212,7 @@ export default function Home() {
 
         </div>
       </section>
+
 
 
       {/* ================================================= LEADERSHIP SECTION ================================================= */}
@@ -204,6 +246,7 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
 
 
       {/* ================================================= HIGHLIGHTS SECTION ================================================= */}
@@ -255,38 +298,7 @@ export default function Home() {
       </section>
 
 
-      {/* ================================================= EVENTS PREVIEW ================================================= */}
-      <section className="py-24 px-6 max-w-6xl mx-auto">
-        <h2 className="text-4xl font-extrabold mb-12">
-          Latest <span className="text-[#9D4EDD]">Events</span>
-        </h2>
 
-        <div className="grid md:grid-cols-3 gap-10">
-          {[e1, e2, e4].map((i) => (
-            <div key={i}
-              className="p-4 rounded-2xl bg-[#1c1c24] border border-white/10 hover:border-[#9D4EDD] transition"
-            >
-              <img
-                src={i}
-                className="rounded-xl h-52 w-full object-cover mb-4"
-              />
-              <h4 className="text-xl font-bold">Event Title</h4>
-              <p className="text-gray-400 text-sm mt-2">
-                A quick highlight of what this event was about.
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <div className="text-center mt-10">
-          <Link
-            to="/events"
-            className="px-8 py-3 rounded-full bg-[#9D4EDD] hover:bg-[#7B2CBF] transition font-bold"
-          >
-            View All Events
-          </Link>
-        </div>
-      </section>
 
     </div>
   );

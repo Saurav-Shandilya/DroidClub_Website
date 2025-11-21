@@ -5,6 +5,8 @@ import gs from "../assets/images/about/vaishnav.jpg";
 import vp from "../assets/images/about/harsh.jpeg";
 import school from "../assets/images/about/school.jpg";
 import workshop from "../assets/images/about/workshop.jpg";
+import mentor from "../assets/images/home/toshit.png";
+
 import e1 from "../assets/images/about/e1.jpg";
 import e2 from "../assets/images/about/e2.jpg";
 import e3 from "../assets/images/about/e3.jpg";
@@ -101,12 +103,12 @@ export default function About() {
 
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <img
-            src={president}
+            src={mentor}
             className="rounded-xl shadow-lg border border-[#9D4EDD]/30"
           />
 
           <div>
-            <h3 className="text-2xl font-bold mb-2">Dr. Toshit Sir</h3>
+            <h3 className="text-2xl font-bold mb-2">Toshit jain</h3>
             <p className="text-gray-400 leading-relaxed">
               Our mentor guides us in leadership, technical excellence,
               research directions, and project development.
