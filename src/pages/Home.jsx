@@ -35,7 +35,6 @@ export default function Home() {
 
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0f0f13]/40 via-[#0f0f13]/70 to-[#0f0f13]/95"></div>
 
-        {/* Glow */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-20 -left-10 w-96 h-96 bg-purple-600/20 rounded-full blur-[150px]"></div>
           <div className="absolute bottom-10 right-0 w-[30rem] h-[30rem] bg-purple-500/20 rounded-full blur-[200px]"></div>
@@ -67,13 +66,24 @@ export default function Home() {
               <div key={i}
                 className="aspect-square rounded-2xl overflow-hidden border border-white/10 hover:scale-105 transition"
               >
-                <img src={image} className="w-full h-full object-cover" />
+                <img
+                  src={image}
+                  loading="lazy"
+                  decoding="async"
+                  alt={`Hero grid ${i}`}
+                  onLoad={(e) => {
+                    e.currentTarget.classList.remove("opacity-0");
+                    e.currentTarget.classList.remove("blur-sm");
+                  }}
+                  className="w-full h-full object-cover opacity-0 blur-sm transition-all duration-700"
+                />
               </div>
             ))}
           </div>
 
         </div>
       </section>
+
 
 
       {/* ================================================= WHO WE ARE ================================================= */}
@@ -83,9 +93,19 @@ export default function Home() {
           {/* Images */}
           <div className="grid grid-cols-2 gap-4">
             {[e3, e2, e4, e1].map((src, i) => (
-              <img key={i}
+              <img
+                key={i}
                 src={src}
-                className={`rounded-2xl object-cover h-60 w-full shadow-[0_0_25px_rgba(157,78,221,0.4)] ${i % 2 === 1 ? "mt-10" : ""}`}
+                loading="lazy"
+                decoding="async"
+                alt={`Who we are ${i}`}
+                onLoad={(e) => {
+                  e.currentTarget.classList.remove("opacity-0");
+                  e.currentTarget.classList.remove("blur-sm");
+                }}
+                className={`rounded-2xl object-cover h-60 w-full opacity-0 blur-sm transition-all duration-700 shadow-[0_0_25px_rgba(157,78,221,0.4)] ${
+                  i % 2 === 1 ? "mt-10" : ""
+                }`}
               />
             ))}
           </div>
@@ -126,6 +146,7 @@ export default function Home() {
       </section>
 
 
+
       {/* ================================================= STATS SECTION ================================================= */}
       <section className="py-20 bg-[#13131a] text-center">
         <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-10">
@@ -153,13 +174,20 @@ export default function Home() {
         </h2>
 
         <div className="grid md:grid-cols-3 gap-10">
-          {[codepunk2, robo, line, mech].map((i) => (
-            <div key={i}
+          {[codepunk2, robo, line, mech].map((i, index) => (
+            <div key={index}
               className="p-4 rounded-2xl bg-[#1c1c24] border border-white/10 hover:border-[#9D4EDD] transition"
             >
               <img
                 src={i}
-                className="rounded-xl h-52 w-full object-cover mb-4"
+                loading="lazy"
+                decoding="async"
+                alt={`Upcoming event ${index}`}
+                onLoad={(e) => {
+                  e.currentTarget.classList.remove("opacity-0");
+                  e.currentTarget.classList.remove("blur-sm");
+                }}
+                className="rounded-xl h-52 w-full object-cover mb-4 opacity-0 blur-sm transition-all duration-700"
               />
               <h4 className="text-xl font-bold">Event Coming Soon</h4>
               <p className="text-gray-400 text-sm mt-2">
@@ -191,7 +219,14 @@ export default function Home() {
 
           <img
             src={mentor}
-            className="rounded-3xl w-full h-[350px] object-cover shadow-[0_0_40px_rgba(157,78,221,0.5)]"
+            loading="lazy"
+            decoding="async"
+            alt="Mentor Toshit Jain"
+            onLoad={(e) => {
+              e.currentTarget.classList.remove("opacity-0");
+              e.currentTarget.classList.remove("blur-sm");
+            }}
+            className="rounded-3xl w-full h-[350px] object-cover shadow-[0_0_40px_rgba(157,78,221,0.5)] opacity-0 blur-sm transition-all duration-700"
           />
 
           <div>
@@ -229,7 +264,17 @@ export default function Home() {
             { name: "Vaishnav P Ramesh", role: "General Secretary", img: gs },
           ].map((p, i) => (
             <div key={i} className="bg-[#1a1a24] rounded-xl p-6 border border-[#9D4EDD]/20 hover:border-[#9D4EDD] transition shadow-lg">
-              <img src={p.img} className="rounded-xl mb-4 w-full h-56 object-cover shadow-md shadow-[#9D4EDD]/20" />
+              <img
+                src={p.img}
+                loading="lazy"
+                decoding="async"
+                alt={p.name}
+                onLoad={(e) => {
+                  e.currentTarget.classList.remove("opacity-0");
+                  e.currentTarget.classList.remove("blur-sm");
+                }}
+                className="rounded-xl mb-4 w-full h-56 object-cover shadow-md shadow-[#9D4EDD]/20 opacity-0 blur-sm transition-all duration-700"
+              />
               <h3 className="text-xl font-bold">{p.name}</h3>
               <p className="text-[#9D4EDD] font-semibold">{p.role}</p>
             </div>
@@ -286,7 +331,14 @@ export default function Home() {
                 <img
                   key={i}
                   src={src}
-                  className={`rounded-xl object-cover w-full ${
+                  loading="lazy"
+                  decoding="async"
+                  alt={`Highlight ${i}`}
+                  onLoad={(e) => {
+                    e.currentTarget.classList.remove("opacity-0");
+                    e.currentTarget.classList.remove("blur-sm");
+                  }}
+                  className={`rounded-xl object-cover w-full opacity-0 blur-sm transition-all duration-700 ${
                     i % 2 === 0 ? "h-32" : "h-48"
                   } hover:scale-105 transition`}
                 />
@@ -296,7 +348,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
 
 
 

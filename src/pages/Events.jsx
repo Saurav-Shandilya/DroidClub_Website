@@ -53,23 +53,28 @@ export default function Events() {
     ],
   };
 
+  /* ========================== UPCOMING ========================== */
   const UpcomingSection = ({ title, data }) => (
     <div className="mb-20">
       <h2 className="text-4xl font-bold text-[#9D4EDD] mb-10">{title}</h2>
 
-      {/* ONLY COVER + TITLE */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
         {data.map((event, index) => (
           <div
             key={index}
             className="bg-[#1a1a24] border border-[#9D4EDD]/20 rounded-2xl shadow-xl p-5 hover:border-[#9D4EDD]/60 transition"
           >
-            {/* Cover Image */}
             <div className="relative overflow-hidden rounded-xl group">
               <img
                 src={event.cover}
-                className="w-full h-56 object-cover rounded-xl group-hover:scale-110 transition duration-500"
-                alt="Event Cover"
+                loading="lazy"
+                decoding="async"
+                alt={event.title}
+                onLoad={(e) => {
+                  e.currentTarget.classList.remove("opacity-0");
+                  e.currentTarget.classList.remove("blur-sm");
+                }}
+                className="w-full h-56 object-cover rounded-xl opacity-0 blur-sm transition-all duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition"></div>
             </div>
@@ -86,23 +91,28 @@ export default function Events() {
     </div>
   );
 
+  /* ========================== COMPLETED ========================== */
   const CompletedSection = ({ title, data }) => (
     <div className="mb-20">
       <h2 className="text-4xl font-bold text-[#9D4EDD] mb-10">{title}</h2>
 
-      {/* COMPLETED EVENTS WITH FULL DETAILS */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
         {data.map((event, index) => (
           <div
             key={index}
             className="bg-[#1a1a24] border border-[#9D4EDD]/20 rounded-2xl shadow-xl p-5 hover:border-[#9D4EDD]/60 transition"
           >
-            {/* Cover Image */}
             <div className="relative overflow-hidden rounded-xl group">
               <img
                 src={event.cover}
-                className="w-full h-56 object-cover rounded-xl group-hover:scale-110 transition duration-500"
-                alt="Event Cover"
+                loading="lazy"
+                decoding="async"
+                alt={event.title}
+                onLoad={(e) => {
+                  e.currentTarget.classList.remove("opacity-0");
+                  e.currentTarget.classList.remove("blur-sm");
+                }}
+                className="w-full h-56 object-cover rounded-xl opacity-0 blur-sm transition-all duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition"></div>
             </div>
@@ -118,7 +128,6 @@ export default function Events() {
               {event.description}
             </p>
 
-            {/* Mini Gallery */}
             <div className="grid grid-cols-3 gap-3">
               {event.gallery.map((img, i) => (
                 <div
@@ -128,7 +137,14 @@ export default function Events() {
                 >
                   <img
                     src={img}
-                    className="w-full h-24 object-cover group-hover:scale-110 transition duration-500"
+                    loading="lazy"
+                    decoding="async"
+                    alt="Gallery"
+                    onLoad={(e) => {
+                      e.currentTarget.classList.remove("opacity-0");
+                      e.currentTarget.classList.remove("blur-sm");
+                    }}
+                    className="w-full h-24 object-cover opacity-0 blur-sm transition-all duration-700 group-hover:scale-110"
                   />
                 </div>
               ))}
@@ -149,7 +165,6 @@ export default function Events() {
         Explore our upcoming and completed events.
       </p>
 
-      {/* UPDATED SECTIONS */}
       <UpcomingSection title="Upcoming Events" data={eventsData.upcoming} />
       <CompletedSection title="Completed Events" data={eventsData.completed} />
 
@@ -161,7 +176,14 @@ export default function Events() {
         >
           <img
             src={previewImg}
-            className="max-w-3xl max-h-[80vh] rounded-2xl shadow-xl border border-[#9D4EDD]"
+            loading="lazy"
+            decoding="async"
+            alt="Preview"
+            onLoad={(e) => {
+              e.currentTarget.classList.remove("opacity-0");
+              e.currentTarget.classList.remove("blur-sm");
+            }}
+            className="max-w-3xl max-h-[80vh] rounded-2xl shadow-xl border border-[#9D4EDD] opacity-0 blur-sm transition-all duration-700"
           />
         </div>
       )}

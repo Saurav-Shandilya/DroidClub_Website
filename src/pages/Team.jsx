@@ -47,17 +47,14 @@ import bhumik from "../assets/images/team/bhumik.jpg";
 import akshita from "../assets/images/team/akshita.JPG";
 import purojita from "../assets/images/team/purojita.jpg";
 
-
 export default function Team() {
 
-  /* ---------------- LEVEL 1 ---------------- */
   const level1 = [
     { name: "Aditya Naulakha", role: "President", img: p },
     { name: "Harshvardhan Gupta", role: "Vice President", img: vp },
     { name: "Vaishnav P Ramesh", role: "General Secretary", img: gs },
   ];
 
-  /* ---------------- LEVEL 2: HEADS ---------------- */
   const level2 = [
     { name: "Venu Gopal", role: "Treasurer", img: venu },
     { name: "Arpit Saraswat", role: "IOT Head", img: arpit },
@@ -71,7 +68,6 @@ export default function Team() {
     { name: "Keshav Sharma", role: "Web Dev Head", img: keshav },
   ];
 
-  /* ---------------- LEVEL 3: CO-HEADS ---------------- */
   const level3 = [
     { name: "Shivam Gupta", role: "IOT Co-Head", img: shivam },
     { name: "Disha Gupta", role: "AI/ML Co-Head", img: disha },
@@ -88,7 +84,6 @@ export default function Team() {
     { name: "Divyansh Sharma", role: "Web Dev Co-Head", img: divyansh },
   ];
 
-  /* ---------------- LEVEL 4: EXECUTIVES ---------------- */
   const level4 = [
     { name: "Ashi Nauhwar", role: "Executive Member", img: ashi },
     { name: "Anshini Chaturvedi", role: "Executive Member", img: anshini },
@@ -104,7 +99,6 @@ export default function Team() {
     { name: "Madhav Bacharwar", role: "Executive Member", img: madhav },
     { name: "Ajitmani Gupta", role: "Executive Member", img: ajitmani },
     { name: "Alex Vyas", role: "Executive Member", img: alex},
-    
     { name: "Aditya Rautela", role: "Executive Member", img: adijr },
     { name: "Yashendra Kumar", role: "Executive Member", img: yashendra },
     { name: "Purojita Singh", role: "Executive Member", img: purojita },
@@ -134,8 +128,6 @@ export default function Team() {
   );
 }
 
-/* ---------------- COMPONENTS ---------------- */
-
 function Section({ level, size }) {
   return (
     <div className="relative mb-20">
@@ -151,7 +143,6 @@ function Section({ level, size }) {
 
 function TeamCard({ data, size }) {
 
-  // ✔️ FIXED — valid tailwind portrait sizes (no auto-resize)
   const sizes = {
     large: "w-56 h-44",
     medium: "w-48 h-40",
@@ -166,7 +157,14 @@ function TeamCard({ data, size }) {
       <div className="mx-auto rounded-xl overflow-hidden">
         <img
           src={data.img}
-          className={`${sizes[size]} object-cover`}
+          loading="lazy"
+          decoding="async"
+          alt={data.name}
+          onLoad={(e) => {
+            e.currentTarget.classList.remove("opacity-0");
+            e.currentTarget.classList.remove("blur-sm");
+          }}
+          className={`${sizes[size]} object-cover opacity-0 blur-sm transition-all duration-700`}
         />
       </div>
 
