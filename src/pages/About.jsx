@@ -1,16 +1,16 @@
-import groupImg from "../assets/images/about/group.jpg";
-import codepunk from "../assets/images/about/codepunk.jpg";
-import president from "../assets/images/about/aditya.jpg";
-import gs from "../assets/images/about/vaishnav.jpg";
-import vp from "../assets/images/about/harsh.jpeg";
-import school from "../assets/images/about/school.jpg";
-import workshop from "../assets/images/about/workshop.jpg";
+import groupImg from "../assets/images/about/group.webp";
+import codepunk from "../assets/images/about/codepunk.webp";
+import president from "../assets/images/about/aditya.webp";
+import gs from "../assets/images/about/vaishnav.webp";
+import vp from "../assets/images/about/harsh.webp";
+import school from "../assets/images/about/school.webp";
+import workshop from "../assets/images/about/workshop.webp";
 import mentor from "../assets/images/home/toshit.png";
 
-import e1 from "../assets/images/about/e1.jpg";
-import e2 from "../assets/images/about/e2.jpg";
-import e3 from "../assets/images/about/e3.jpg";
-import e4 from "../assets/images/about/e4.jpg";
+import e1 from "../assets/images/about/e1.webp";
+import e2 from "../assets/images/about/e2.webp";
+import e3 from "../assets/images/about/e3.webp";
+import e4 from "../assets/images/about/e4.webp";
 
 const experienceImages = [e1, e2, e3, e4];
 

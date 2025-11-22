@@ -1,6 +1,6 @@
 import { useState } from "react";
-import codepunk from "../assets/images/about/codepunk.jpg";
-import groupImg from "../assets/images/about/group.jpg";
+import codepunk from "../assets/images/about/codepunk.webp";
+import groupImg from "../assets/images/about/group.webp";
 import punk2 from "../assets/images/event/codepunk2.jpg";
 import punk3 from "../assets/images/event/codepunk3.jpg";
 import school1 from "../assets/images/event/school1.jpg";

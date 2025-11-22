@@ -1,19 +1,19 @@
 import { ArrowRight, Users, Star } from "lucide-react";
-import e1 from "../assets/images/about/e1.jpg";
-import e2 from "../assets/images/about/e2.jpg";
-import e3 from "../assets/images/about/e3.jpg";
-import e4 from "../assets/images/about/e4.jpg";
-import e5 from "../assets/images/about/school.jpg";
+import e1 from "../assets/images/about/e1.webp";
+import e2 from "../assets/images/about/e2.webp";
+import e3 from "../assets/images/about/e3.webp";
+import e4 from "../assets/images/about/e4.webp";
+import e5 from "../assets/images/about/school.webp";
 import mentor from "../assets/images/home/toshit.png";
 import codepunk2 from "../assets/images/home/3.png";
 import robo from "../assets/images/home/4.png";
 import line from "../assets/images/home/5.png";
 import mech from "../assets/images/home/6.png";
-import e6 from "../assets/images/about/workshop.jpg";
+import e6 from "../assets/images/about/workshop.webp";
 import { Link } from "react-router-dom";
-import p from "../assets/images/about/aditya.jpg";
-import gs from "../assets/images/about/vaishnav.jpg";
-import vp from "../assets/images/about/harsh.jpeg";
+import p from "../assets/images/about/aditya.webp";
+import gs from "../assets/images/about/vaishnav.webp";
+import vp from "../assets/images/about/harsh.webp";
 
 export default function Home() {
   return (
