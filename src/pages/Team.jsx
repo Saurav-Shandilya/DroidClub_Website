@@ -42,6 +42,10 @@ import madhav from "../assets/images/team/Madhav.jpg";
 import ajitmani from "../assets/images/team/ajitmani.jpg";
 import shivansh from "../assets/images/team/shivansh.jpeg";
 import granth from "../assets/images/team/Granth.jpg";
+import aditi from "../assets/images/team/aditi.jpg";
+import bhumik from "../assets/images/team/bhumik.jpg";
+import akshita from "../assets/images/team/akshita.JPG";
+import purojita from "../assets/images/team/purojita.JPG";
 
 
 export default function Team() {
@@ -94,7 +98,7 @@ export default function Team() {
     { name: "Granth Solanki", role: "Executive Member", img: granth},
     { name: "Yash Upadhyay", role: "Executive Member", img: yash },
     { name: "Shivam Sharma", role: "Executive Member", img: shivamsh },
-    { name: "Aditi Sharma", role: "Executive Member", img: "https://via.placeholder.com/200" },
+    { name: "Aditi Sharma", role: "Executive Member", img: aditi },
     { name: "Sheetal Solanki", role: "Executive Member", img: sheetal},
     { name: "Tanishq Tiwari", role: "Executive Member", img: tanishqjr },
     { name: "Madhav Bacharwar", role: "Executive Member", img: madhav },
@@ -103,12 +107,12 @@ export default function Team() {
     
     { name: "Aditya Rautela", role: "Executive Member", img: adijr },
     { name: "Yashendra Kumar", role: "Executive Member", img: yashendra },
-    { name: "Purojita Singh", role: "Executive Member", img: "https://via.placeholder.com/200" },
+    { name: "Purojita Singh", role: "Executive Member", img: purojita },
     { name: "Shivansh", role: "Executive Member", img: shivansh},
     { name: "Shatakshi Bajpai", role: "Executive Member", img: shatakshi2 },
-    { name: "Bhumik Agrawal", role: "Executive Member", img: "https://via.placeholder.com/200" },
+    { name: "Bhumik Agrawal", role: "Executive Member", img: bhumik },
     { name: "Prachi Varshney", role: "Executive Member", img: prachi },
-    { name: "Akshita Singh", role: "Executive Member", img: "https://via.placeholder.com/200" },
+    { name: "Akshita Singh", role: "Executive Member", img: akshita },
   ];
 
   return (

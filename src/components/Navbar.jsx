@@ -12,7 +12,7 @@ export default function Navbar() {
     { name: "Events", path: "/events" },
     { name: "Team", path: "/team" },
     { name: "Alumni", path: "/Alumni" },
-    { name: "Gallery", path: "/gallery" },
+    // { name: "Gallery", path: "/gallery" },
   ];
 
   return (
