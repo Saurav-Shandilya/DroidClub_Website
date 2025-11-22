@@ -20,7 +20,7 @@ import damini from "../assets/images/team/Dhamini.jpg";
 import shravya from "../assets/images/team/shravya.jpg";
 import shatakshi2 from "../assets/images/team/shatakshi.jpg";
 import rohit2 from "../assets/images/team/rohit .jpg";
-import ashi from "../assets/images/team/ashi.jpg";
+import ashi from "../assets/images/team/Ashi.jpg";
 import prachi from "../assets/images/team/prachi.jpg";
 import vansh from "../assets/images/team/vansh.jpg";
 import kunj from "../assets/images/team/kunj.jpg";
