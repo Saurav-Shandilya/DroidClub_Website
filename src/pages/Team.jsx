@@ -4,7 +4,7 @@ import vp from "../assets/images/team/harsh.webp";
 import saurav from "../assets/images/team/saurav.webp";
 import anshini from "../assets/images/team/anshini.webp";
 import akshat from "../assets/images/team/akshat.webp";
-import sumit from "../assets/images/team/Sumit.webp";
+import sumit from "../assets/images/team/sumit.webp";
 import isha from "../assets/images/team/Isha.webp";
 import disha from "../assets/images/team/disha.webp";
 import shivam from "../assets/images/team/shivam.webp";
