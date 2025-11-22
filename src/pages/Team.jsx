@@ -45,7 +45,7 @@ import granth from "../assets/images/team/Granth.jpg";
 import aditi from "../assets/images/team/aditi.jpg";
 import bhumik from "../assets/images/team/bhumik.jpg";
 import akshita from "../assets/images/team/akshita.JPG";
-import purojita from "../assets/images/team/purojita.JPG";
+import purojita from "../assets/images/team/purojita.jpg";
 
 
 export default function Team() {
