@@ -24,7 +24,7 @@ import ashi from "../assets/images/team/Ashi.jpg";
 import prachi from "../assets/images/team/prachi.jpg";
 import vansh from "../assets/images/team/vansh.jpg";
 import kunj from "../assets/images/team/kunj.jpg";
-import worship from "../assets/images/team/worship.jpg";
+import worship from "../assets/images/team/Worship.jpg";
 import animesh from "../assets/images/team/Animesh.jpg";
 import devendra from "../assets/images/team/Devendra.jpg";
 import venu from "../assets/images/team/venu.JPG";
