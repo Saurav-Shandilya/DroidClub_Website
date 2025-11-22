@@ -28,6 +28,20 @@ import worship from "../assets/images/team/Worship.jpg";
 import animesh from "../assets/images/team/Animesh.jpg";
 import devendra from "../assets/images/team/Devendra.jpg";
 import venu from "../assets/images/team/venu.JPG";
+import rohan from "../assets/images/team/rohan.jpg";
+import pratham from "../assets/images/team/pratham.jpeg";
+import divyansh from "../assets/images/team/divyansh.png";
+import yashendra from "../assets/images/team/yashendra.jpg";
+import tanishqjr from "../assets/images/team/tanishqjr.jpg";
+import yash from "../assets/images/team/yash.jpg";
+import sheetal from "../assets/images/team/sheetal.jpg";
+import shivamsh from "../assets/images/team/shivamsh.jpg";
+import alex from "../assets/images/team/Alexx.jpg";
+import adijr from "../assets/images/team/adijr.jpg";
+import madhav from "../assets/images/team/Madhav.jpg";
+import ajitmani from "../assets/images/team/ajitmani.jpg";
+import shivansh from "../assets/images/team/shivansh.jpeg";
+import granth from "../assets/images/team/Granth.jpg";
 
 
 export default function Team() {
@@ -44,6 +58,7 @@ export default function Team() {
     { name: "Venu Gopal", role: "Treasurer", img: venu },
     { name: "Arpit Saraswat", role: "IOT Head", img: arpit },
     { name: "Kunj Bhasin", role: "AI/ML Head", img: kunj },
+    { name: "Rohan Prajapati", role: "Technical Head", img: rohan },
     { name: "Tanishk Saxena", role: "Design Head", img: tanishq},
     { name: "Devendra Sharma", role: "Media Crew Head", img: devendra},
     { name: "Akshat Jain", role: "PR & Event Head", img: akshat },
@@ -61,12 +76,12 @@ export default function Team() {
     { name: "Sumit Sharma", role: "Media Crew Co-Head", img: sumit },
     { name: "Worship Agrawal", role: "Media Crew Co-Head", img: worship },
     { name: "Sohum Sabhani", role: "PR & Event Co-Head", img: sohum },
-    { name: "Pratham Saini", role: "PR & Event Co-Head", img: "https://via.placeholder.com/200" },
+    { name: "Pratham Saini", role: "PR & Event Co-Head", img: pratham },
     { name: "Priya Garg", role: "Content Co-Head", img: priya},
     { name: "Animesh", role: "Game Dev Co-Head", img: animesh},
     { name: "Nowduru Damini", role: "Game Dev Co-Head", img: damini },
     { name: "Vansh Sharma", role: "Web Dev Co-Head", img: vansh },
-    { name: "Divyansh Sharma", role: "Web Dev Co-Head", img: "https://via.placeholder.com/200" },
+    { name: "Divyansh Sharma", role: "Web Dev Co-Head", img: divyansh },
   ];
 
   /* ---------------- LEVEL 4: EXECUTIVES ---------------- */
@@ -76,19 +91,20 @@ export default function Team() {
     { name: "Sakshi", role: "Executive Member", img: sakshi },
     { name: "Shravya Pandey", role: "Executive Member", img: shravya },
     { name: "Rohit", role: "Executive Member", img:  rohit2},
-    { name: "Granth Solanki", role: "Executive Member", img: "https://via.placeholder.com/200"},
-    { name: "Yash Upadhyay", role: "Executive Member", img: "https://via.placeholder.com/200" },
+    { name: "Granth Solanki", role: "Executive Member", img: granth},
+    { name: "Yash Upadhyay", role: "Executive Member", img: yash },
+    { name: "Shivam Sharma", role: "Executive Member", img: shivamsh },
     { name: "Aditi Sharma", role: "Executive Member", img: "https://via.placeholder.com/200" },
-    { name: "Sheetal Solanki", role: "Executive Member", img: "https://via.placeholder.com/200" },
-    { name: "Tanishq Tiwari", role: "Executive Member", img: "https://via.placeholder.com/200" },
-    { name: "Madhav Bacharwar", role: "Executive Member", img: "https://via.placeholder.com/200" },
-    { name: "Ajitmani Gupta", role: "Executive Member", img: "https://via.placeholder.com/200" },
-    { name: "Alex Vyas", role: "Executive Member", img: "https://via.placeholder.com/200" },
+    { name: "Sheetal Solanki", role: "Executive Member", img: sheetal},
+    { name: "Tanishq Tiwari", role: "Executive Member", img: tanishqjr },
+    { name: "Madhav Bacharwar", role: "Executive Member", img: madhav },
+    { name: "Ajitmani Gupta", role: "Executive Member", img: ajitmani },
+    { name: "Alex Vyas", role: "Executive Member", img: alex},
     
-    { name: "Aditya Rautela", role: "Executive Member", img: "https://via.placeholder.com/200" },
-    { name: "Yashendra Kumar", role: "Executive Member", img: "https://via.placeholder.com/200" },
+    { name: "Aditya Rautela", role: "Executive Member", img: adijr },
+    { name: "Yashendra Kumar", role: "Executive Member", img: yashendra },
     { name: "Purojita Singh", role: "Executive Member", img: "https://via.placeholder.com/200" },
-    { name: "Shivansh", role: "Executive Member", img: "https://via.placeholder.com/200" },
+    { name: "Shivansh", role: "Executive Member", img: shivansh},
     { name: "Shatakshi Bajpai", role: "Executive Member", img: shatakshi2 },
     { name: "Bhumik Agrawal", role: "Executive Member", img: "https://via.placeholder.com/200" },
     { name: "Prachi Varshney", role: "Executive Member", img: prachi },
