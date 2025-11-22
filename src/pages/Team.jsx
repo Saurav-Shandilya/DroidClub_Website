@@ -2,7 +2,7 @@ import gs from "../assets/images/team/vaishnav.webp";
 import p from "../assets/images/team/Aditya.webp";
 import vp from "../assets/images/team/harsh.webp";
 import saurav from "../assets/images/team/saurav.webp";
-import anshini from "../assets/images/team/Anshini.webp";
+import anshini from "../assets/images/team/anshini.webp";
 import akshat from "../assets/images/team/Akshat.webp";
 import sumit from "../assets/images/team/Sumit.webp";
 import isha from "../assets/images/team/Isha.webp";
