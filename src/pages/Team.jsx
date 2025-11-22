@@ -13,7 +13,7 @@ import Chaitanya from "../assets/images/team/Chaitanya.jpeg";
 import sakshi from "../assets/images/team/sakshi.png";
 import arpit from "../assets/images/team/arpit.jpg";
 import tanishq from "../assets/images/team/tanishq.jpg";
-import priya from "../assets/images/team/priya.jpg";
+import priya from "../assets/images/team/Priya.jpg";
 import keshav from "../assets/images/team/keshav.jpg";
 import vaidarbhi from "../assets/images/team/vaidarbhi.jpg";
 import damini from "../assets/images/team/Dhamini.jpg";
