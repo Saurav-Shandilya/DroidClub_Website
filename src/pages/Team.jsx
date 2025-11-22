@@ -11,6 +11,24 @@ import shivam from "../assets/images/team/shivam.jpg";
 import sohum from "../assets/images/team/sohum.png";
 import Chaitanya from "../assets/images/team/Chaitanya.jpeg";
 import sakshi from "../assets/images/team/sakshi.png";
+import arpit from "../assets/images/team/arpit.jpg";
+import tanishq from "../assets/images/team/tanishq.jpg";
+import priya from "../assets/images/team/priya.jpg";
+import keshav from "../assets/images/team/keshav.jpg";
+import vaidarbhi from "../assets/images/team/vaidarbhi.jpg";
+import damini from "../assets/images/team/Dhamini.jpg";
+import shravya from "../assets/images/team/shravya.jpg";
+import shatakshi2 from "../assets/images/team/shatakshi.jpg";
+import rohit2 from "../assets/images/team/rohit .jpg";
+import ashi from "../assets/images/team/ashi.jpg";
+import prachi from "../assets/images/team/prachi.jpg";
+import vansh from "../assets/images/team/vansh.jpg";
+import kunj from "../assets/images/team/kunj.jpg";
+import worship from "../assets/images/team/worship.jpg";
+import animesh from "../assets/images/team/Animesh.jpg";
+import devendra from "../assets/images/team/Devendra.jpg";
+import venu from "../assets/images/team/venu.JPG";
+
 
 export default function Team() {
 
@@ -23,14 +41,15 @@ export default function Team() {
 
   /* ---------------- LEVEL 2: HEADS ---------------- */
   const level2 = [
-    { name: "Arpit Saraswat", role: "IOT Head", img: "https://via.placeholder.com/200" },
-    { name: "Kunj Bhasin", role: "AI/ML Head", img: "https://via.placeholder.com/200" },
-    { name: "Tanishk Saxena", role: "Design Head", img: "https://via.placeholder.com/200" },
-    { name: "Devendra Sharma", role: "Media Crew Head", img: "https://via.placeholder.com/200" },
+    { name: "Venu Gopal", role: "Treasurer", img: venu },
+    { name: "Arpit Saraswat", role: "IOT Head", img: arpit },
+    { name: "Kunj Bhasin", role: "AI/ML Head", img: kunj },
+    { name: "Tanishk Saxena", role: "Design Head", img: tanishq},
+    { name: "Devendra Sharma", role: "Media Crew Head", img: devendra},
     { name: "Akshat Jain", role: "PR & Event Head", img: akshat },
-    { name: "Vaidarbhi Goyal", role: "Content Head", img: "https://via.placeholder.com/200" },
+    { name: "Vaidarbhi Goyal", role: "Content Head", img: vaidarbhi },
     { name: "Chaitanya", role: "Game Dev Head", img: Chaitanya },
-    { name: "Keshav Sharma", role: "Web Dev Head", img: "https://via.placeholder.com/200" },
+    { name: "Keshav Sharma", role: "Web Dev Head", img: keshav },
   ];
 
   /* ---------------- LEVEL 3: CO-HEADS ---------------- */
@@ -40,21 +59,24 @@ export default function Team() {
     { name: "Isha Vashishtha", role: "AI/ML Co-Head", img: isha },
     { name: "Saurav Shandilya", role: "Design Co-Head", img: saurav },
     { name: "Sumit Sharma", role: "Media Crew Co-Head", img: sumit },
-    { name: "Worship Agrawal", role: "Media Crew Co-Head", img: "https://via.placeholder.com/200" },
+    { name: "Worship Agrawal", role: "Media Crew Co-Head", img: worship },
     { name: "Sohum Sabhani", role: "PR & Event Co-Head", img: sohum },
     { name: "Pratham Saini", role: "PR & Event Co-Head", img: "https://via.placeholder.com/200" },
-    { name: "Priya Garg", role: "Content Co-Head", img: "https://via.placeholder.com/200" },
-    { name: "Animesh", role: "Game Dev Co-Head", img: "https://via.placeholder.com/200" },
-    { name: "Nowduru Damini", role: "Game Dev Co-Head", img: "https://via.placeholder.com/200" },
-    { name: "Vansh Sharma", role: "Web Dev Co-Head", img: "https://via.placeholder.com/200" },
+    { name: "Priya Garg", role: "Content Co-Head", img: priya},
+    { name: "Animesh", role: "Game Dev Co-Head", img: animesh},
+    { name: "Nowduru Damini", role: "Game Dev Co-Head", img: damini },
+    { name: "Vansh Sharma", role: "Web Dev Co-Head", img: vansh },
     { name: "Divyansh Sharma", role: "Web Dev Co-Head", img: "https://via.placeholder.com/200" },
   ];
 
   /* ---------------- LEVEL 4: EXECUTIVES ---------------- */
   const level4 = [
+    { name: "Ashi Nauhwar", role: "Executive Member", img: ashi },
     { name: "Anshini Chaturvedi", role: "Executive Member", img: anshini },
-    { name: "Rohit", role: "Executive Member", img: "https://via.placeholder.com/200" },
-    { name: "Granth Solanki", role: "Executive Member", img: "https://via.placeholder.com/200" },
+    { name: "Sakshi", role: "Executive Member", img: sakshi },
+    { name: "Shravya Pandey", role: "Executive Member", img: shravya },
+    { name: "Rohit", role: "Executive Member", img:  rohit2},
+    { name: "Granth Solanki", role: "Executive Member", img: "https://via.placeholder.com/200"},
     { name: "Yash Upadhyay", role: "Executive Member", img: "https://via.placeholder.com/200" },
     { name: "Aditi Sharma", role: "Executive Member", img: "https://via.placeholder.com/200" },
     { name: "Sheetal Solanki", role: "Executive Member", img: "https://via.placeholder.com/200" },
@@ -62,16 +84,14 @@ export default function Team() {
     { name: "Madhav Bacharwar", role: "Executive Member", img: "https://via.placeholder.com/200" },
     { name: "Ajitmani Gupta", role: "Executive Member", img: "https://via.placeholder.com/200" },
     { name: "Alex Vyas", role: "Executive Member", img: "https://via.placeholder.com/200" },
-    { name: "Sakshi", role: "Executive Member", img: sakshi },
-    { name: "Shravya Pandey", role: "Executive Member", img: "https://via.placeholder.com/200" },
-    { name: "Ashi Nauhwar", role: "Executive Member", img: "https://via.placeholder.com/200" },
+    
     { name: "Aditya Rautela", role: "Executive Member", img: "https://via.placeholder.com/200" },
     { name: "Yashendra Kumar", role: "Executive Member", img: "https://via.placeholder.com/200" },
     { name: "Purojita Singh", role: "Executive Member", img: "https://via.placeholder.com/200" },
     { name: "Shivansh", role: "Executive Member", img: "https://via.placeholder.com/200" },
-    { name: "Shatakshi Bajpai", role: "Executive Member", img: "https://via.placeholder.com/200" },
+    { name: "Shatakshi Bajpai", role: "Executive Member", img: shatakshi2 },
     { name: "Bhumik Agrawal", role: "Executive Member", img: "https://via.placeholder.com/200" },
-    { name: "Prachi Varshney", role: "Executive Member", img: "https://via.placeholder.com/200" },
+    { name: "Prachi Varshney", role: "Executive Member", img: prachi },
     { name: "Akshita Singh", role: "Executive Member", img: "https://via.placeholder.com/200" },
   ];
 
