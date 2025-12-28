@@ -1,18 +1,37 @@
-import groupImg from "../assets/images/about/group.webp";
-import codepunk from "../assets/images/about/codepunk.webp";
-import president from "../assets/images/about/aditya.webp";
-import gs from "../assets/images/about/vaishnav.webp";
-import vp from "../assets/images/about/harsh.webp";
-import school from "../assets/images/about/school.webp";
-import workshop from "../assets/images/about/workshop.webp";
-import mentor from "../assets/images/home/toshit.png";
+/* ================= CLOUDINARY IMAGES ================= */
+const IMAGES = {
+  group:
+    "https://res.cloudinary.com/duxiduyke/image/upload/v1766923785/group_mw2lle.webp",
 
-import e1 from "../assets/images/about/e1.webp";
-import e2 from "../assets/images/about/e2.webp";
-import e3 from "../assets/images/about/e3.webp";
-import e4 from "../assets/images/about/e4.webp";
+  codepunk:
+    "https://res.cloudinary.com/duxiduyke/image/upload/v1766923794/3_b4lbpp.png",
 
-const experienceImages = [e1, e2, e3, e4];
+  school:
+    "https://res.cloudinary.com/duxiduyke/image/upload/v1766923784/school_pxel9z.webp",
+
+  workshop:
+    "https://res.cloudinary.com/duxiduyke/image/upload/v1766923785/workshop_akeqt2.webp",
+
+  mentor:
+    "https://res.cloudinary.com/duxiduyke/image/upload/v1766923798/toshit_phbd9h.png",
+
+  leadership: {
+    president:
+      "https://res.cloudinary.com/duxiduyke/image/upload/v1766923776/aditya_xp00oy.webp",
+    vicePresident:
+      "https://res.cloudinary.com/duxiduyke/image/upload/v1766923783/harsh_dcyx7l.webp",
+    secretary:
+      "https://res.cloudinary.com/duxiduyke/image/upload/v1766923785/vaishnav_wphgb2.webp",
+  },
+
+  experience: [
+    "https://res.cloudinary.com/duxiduyke/image/upload/v1766923782/e1_b749h2.webp",
+    "https://res.cloudinary.com/duxiduyke/image/upload/v1766923778/e2_ngucmf.webp",
+    "https://res.cloudinary.com/duxiduyke/image/upload/v1766923780/e3_y1cupa.webp",
+    "https://res.cloudinary.com/duxiduyke/image/upload/v1766923781/e4_rxlslj.webp",
+  ],
+};
+/* ===================================================== */
 
 export default function About() {
   return (
@@ -23,37 +42,33 @@ export default function About() {
         About <span className="text-[#9D4EDD]">Droid Club</span>
       </h1>
 
-      <p className="text-gray-400 text-center max-w-2xl mx-auto mb-16">
-        <i>A space where technology, creativity, leadership and innovation come together.</i>
+      <p className="text-gray-400 text-center max-w-2xl mx-auto mb-16 italic">
+        A space where technology, creativity, leadership and innovation come together.
       </p>
 
-      {/* SECTION: WHO WE ARE */}
+      {/* WHO WE ARE */}
       <div className="max-w-6xl mx-auto mb-20">
         <h2 className="text-3xl font-bold mb-6 text-[#9D4EDD]">Who We Are</h2>
 
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <img
-            src={groupImg}
+            src={IMAGES.group}
+            alt="Droid Club Group"
             loading="lazy"
-            decoding="async"
-            alt="Group"
-            onLoad={(e) => {
-              e.currentTarget.classList.remove("opacity-0");
-              e.currentTarget.classList.remove("blur-sm");
-            }}
-            className="rounded-xl shadow-lg border border-[#9D4EDD]/30 opacity-0 blur-sm transition-all duration-700"
+            className="rounded-xl shadow-lg border border-[#9D4EDD]/30"
           />
 
           <p className="text-gray-300 leading-relaxed text-lg">
-            DROID Club is a student-driven tech innovation community dedicated to exploring IoT, robotics, and automation.
+            DROID Club is a student-driven tech innovation community dedicated to exploring
+            IoT, robotics, and automation.
             <br /><br />
-            Our mission is to provide a collaborative space where students can experiment with technology, share ideas, and turn concepts into working prototypes.
-            Through hands-on learning, mentorship, and teamwork, we help students grow into confident engineers and innovators.
+            Our mission is to provide a collaborative space where students can experiment
+            with technology, share ideas, and turn concepts into working prototypes.
           </p>
         </div>
       </div>
 
-      {/* SECTION: WHAT WE DO */}
+      {/* WHAT WE DO */}
       <div className="max-w-6xl mx-auto mb-20">
         <h2 className="text-3xl font-bold mb-6 text-[#9D4EDD]">What We Do</h2>
 
@@ -61,21 +76,21 @@ export default function About() {
           {[
             {
               title: "Workshops",
-              img: workshop,
+              img: IMAGES.workshop,
               description:
                 "We organize practical workshops and guided sessions that help students learn new technologies and build real projects.",
             },
             {
               title: "Hackathons",
-              img: codepunk,
+              img: IMAGES.codepunk,
               description:
-                "We host creative hackathons that encourage teamwork, rapid prototyping, and problem-solving through real-world challenges.",
+                "We host creative hackathons that encourage teamwork, rapid prototyping, and real-world problem solving.",
             },
             {
               title: "School Visits",
-              img: school,
+              img: IMAGES.school,
               description:
-                "We conduct school outreach programs to inspire young learners with interactive sessions on robotics, IoT, and technology basics.",
+                "We conduct school outreach programs to inspire young learners with robotics, IoT, and technology basics.",
             },
           ].map((item, i) => (
             <div
@@ -84,14 +99,9 @@ export default function About() {
             >
               <img
                 src={item.img}
-                loading="lazy"
-                decoding="async"
                 alt={item.title}
-                onLoad={(e) => {
-                  e.currentTarget.classList.remove("opacity-0");
-                  e.currentTarget.classList.remove("blur-sm");
-                }}
-                className="rounded-lg mb-4 h-48 w-full object-cover opacity-0 blur-sm transition-all duration-700"
+                loading="lazy"
+                className="rounded-lg mb-4 h-48 w-full object-cover"
               />
 
               <h3 className="text-xl font-semibold text-[#9D4EDD] mb-3">
@@ -106,21 +116,16 @@ export default function About() {
         </div>
       </div>
 
-      {/* SECTION: OUR MENTOR */}
+      {/* MENTOR */}
       <div className="max-w-6xl mx-auto mb-20">
         <h2 className="text-3xl font-bold mb-6 text-[#9D4EDD]">Our Mentor</h2>
 
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <img
-            src={mentor}
+            src={IMAGES.mentor}
+            alt="Mentor Toshit Jain"
             loading="lazy"
-            decoding="async"
-            alt="Mentor"
-            onLoad={(e) => {
-              e.currentTarget.classList.remove("opacity-0");
-              e.currentTarget.classList.remove("blur-sm");
-            }}
-            className="rounded-xl shadow-lg border border-[#9D4EDD]/30 opacity-0 blur-sm transition-all duration-700"
+            className="rounded-xl shadow-lg border border-[#9D4EDD]/30"
           />
 
           <div>
@@ -128,38 +133,42 @@ export default function About() {
             <p className="text-gray-400 leading-relaxed">
               Our mentor guides us in leadership, technical excellence,
               research directions, and project development.
-              <br /><br />
-              Under their supervision, the club has grown into one of the most active
-              student-driven technical communities in the university.
             </p>
           </div>
         </div>
       </div>
 
-      {/* SECTION: LEADERSHIP TEAM */}
+      {/* LEADERSHIP */}
       <div className="max-w-6xl mx-auto mb-20">
         <h2 className="text-3xl font-bold mb-6 text-[#9D4EDD]">Leadership Team</h2>
 
         <div className="grid md:grid-cols-3 gap-10 text-center">
           {[
-            { name: "Aditya Naulakha", role: "President", img: president },
-            { name: "Harshvardhan Gupta", role: "Vice President", img: vp },
-            { name: "Vaishnav P Ramesh", role: "General Secretary", img: gs },
+            {
+              name: "Aditya Naulakha",
+              role: "President",
+              img: IMAGES.leadership.president,
+            },
+            {
+              name: "Harshvardhan Gupta",
+              role: "Vice President",
+              img: IMAGES.leadership.vicePresident,
+            },
+            {
+              name: "Vaishnav P Ramesh",
+              role: "General Secretary",
+              img: IMAGES.leadership.secretary,
+            },
           ].map((p, i) => (
             <div
               key={i}
-              className="bg-[#1a1a24] rounded-xl p-5 border border-[#9D4EDD]/20 hover:border-[#9D4EDD] transition shadow-lg"
+              className="bg-[#1a1a24] rounded-xl p-5 border border-[#9D4EDD]/20 hover:border-[#9D4EDD] transition"
             >
               <img
                 src={p.img}
-                loading="lazy"
-                decoding="async"
                 alt={p.name}
-                onLoad={(e) => {
-                  e.currentTarget.classList.remove("opacity-0");
-                  e.currentTarget.classList.remove("blur-sm");
-                }}
-                className="rounded-xl mb-4 w-full h-52 object-cover shadow-md shadow-[#9D4EDD]/20 opacity-0 blur-sm transition-all duration-700"
+                loading="lazy"
+                className="rounded-xl mb-4 w-full h-52 object-cover"
               />
               <h3 className="text-xl font-bold">{p.name}</h3>
               <p className="text-[#9D4EDD] font-semibold">{p.role}</p>
@@ -168,36 +177,24 @@ export default function About() {
         </div>
       </div>
 
-      {/* SECTION: EXPERIENCES */}
-      <div className="max-w-6xl mx-auto mb-20">
+      {/* EXPERIENCES */}
+      <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold mb-6 text-[#9D4EDD]">Our Experiences</h2>
 
         <div className="grid md:grid-cols-2 gap-10 items-start">
-          <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
-            <p>
-              Over the years, DROID Club has worked on a wide range of technical projects and learning experiences that help students develop practical skills beyond the classroom.
-              <br /><br />
-              We have conducted workshops, hackathons, and hands-on sessions covering microcontrollers, sensors, embedded systems, automation workflows, and robotics.
-              Many students have built their first IoT devices, automation tools, and robotics prototypes through our guidance.
-              <br /><br />
-              Our team has worked on real-world industry-style projects, collaborated with campus clubs, and supported juniors in building their portfolios and showcasing innovative work.
-              Every event, project, and mentorship cycle adds to our journey of continuous learning, experimentation, and technological growth.
-            </p>
-          </div>
+          <p className="text-gray-300 text-lg leading-relaxed">
+            Over the years, DROID Club has conducted workshops, hackathons, and hands-on
+            sessions covering robotics, IoT, automation, and embedded systems.
+          </p>
 
           <div className="grid grid-cols-2 gap-4">
-            {experienceImages.map((img, i) => (
+            {IMAGES.experience.map((img, i) => (
               <img
                 key={i}
                 src={img}
-                loading="lazy"
-                decoding="async"
                 alt="Experience"
-                onLoad={(e) => {
-                  e.currentTarget.classList.remove("opacity-0");
-                  e.currentTarget.classList.remove("blur-sm");
-                }}
-                className="rounded-lg h-40 w-full object-cover shadow-md shadow-[#9D4EDD]/30 opacity-0 blur-sm transition-all duration-700"
+                loading="lazy"
+                className="rounded-lg h-40 w-full object-cover shadow-md shadow-[#9D4EDD]/30"
               />
             ))}
           </div>

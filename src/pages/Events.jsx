@@ -1,59 +1,76 @@
 import { useState } from "react";
-import codepunk from "../assets/images/about/codepunk.webp";
-import groupImg from "../assets/images/about/group.webp";
-import punk2 from "../assets/images/event/codepunk2.jpg";
-import punk3 from "../assets/images/event/codepunk3.jpg";
-import school1 from "../assets/images/event/school1.jpg";
-import school1sub from "../assets/images/event/school1sub.jpg";
-import school1sub2 from "../assets/images/event/school1sub2.jpg";
-import work1 from "../assets/images/event/workshop.jpg";
-import work2 from "../assets/images/event/workshop1.jpg";
-import workshopb from "../assets/images/event/workshopb.jpg";
-import codepunk2 from "../assets/images/home/3.png";
-import robo from "../assets/images/home/4.png";
-import line from "../assets/images/home/5.png";
-import mech from "../assets/images/home/6.png";
 
 export default function Events() {
   const [previewImg, setPreviewImg] = useState(null);
 
   const eventsData = {
     upcoming: [
-      { title: "CodePunk <V2.0/>", cover: codepunk2 },
-      { title: "TechFest RoboWar", cover: robo },
-      { title: "TechFest LineTracing", cover: line },
-      { title: "TechFest Machathon", cover: mech },
+      {
+        title: "CodePunk <V2.0/>",
+        cover:
+          "https://res.cloudinary.com/duxiduyke/image/upload/v1766923794/3_b4lbpp.png",
+      },
+      {
+        title: "TechFest RoboWar",
+        cover:
+          "https://res.cloudinary.com/duxiduyke/image/upload/v1766923795/4_wl27q5.png",
+      },
+      {
+        title: "TechFest LineTracing",
+        cover:
+          "https://res.cloudinary.com/duxiduyke/image/upload/v1766923795/5_ze5xci.png",
+      },
+      {
+        title: "TechFest Machathon",
+        cover:
+          "https://res.cloudinary.com/duxiduyke/image/upload/v1766923796/6_ehzswu.png",
+      },
     ],
 
     completed: [
       {
         title: "<CodePunk V1.0/>",
         year: "2024",
-        cover: codepunk,
+        cover:
+          "https://res.cloudinary.com/duxiduyke/image/upload/v1766923779/codepunk_mdhn6o.webp",
         description:
           "A hackathon where participants built AI-powered tools, IoT systems, and automation prototypes.",
-        gallery: [groupImg, punk2, punk3],
+        gallery: [
+          "https://res.cloudinary.com/duxiduyke/image/upload/v1766923785/group_mw2lle.webp",
+          "https://res.cloudinary.com/duxiduyke/image/upload/v1766923789/codepunk2_fektr3.jpg",
+          "https://res.cloudinary.com/duxiduyke/image/upload/v1766923793/codepunk3_vufjuo.jpg",
+        ],
       },
+
       {
         title: "IoT Workshop",
         year: "2024",
-        cover: workshopb,
+        cover:
+          "https://res.cloudinary.com/duxiduyke/image/upload/v1766923793/workshopb_gbfuis.jpg",
         description:
           "Hands-on training where students built IoT circuits, explored ESP32, and deployed cloud-connected projects.",
-        gallery: [work2, work1],
+        gallery: [
+          "https://res.cloudinary.com/duxiduyke/image/upload/v1766923793/workshop1_f23sdo.jpg",
+          "https://res.cloudinary.com/duxiduyke/image/upload/v1766923799/workshop_duanq2.jpg",
+        ],
       },
+
       {
         title: "School Tech Awareness Drive",
         year: "2024",
-        cover: school1,
+        cover:
+          "https://res.cloudinary.com/duxiduyke/image/upload/v1766923793/school1_abiqkf.jpg",
         description:
           "We visited schools to introduce students to robotics, IoT, and cyber safety through live demos.",
-        gallery: [school1sub, school1sub2],
+        gallery: [
+          "https://res.cloudinary.com/duxiduyke/image/upload/v1766923798/school1sub2_og3frv.jpg",
+          "https://res.cloudinary.com/duxiduyke/image/upload/v1766923791/school1sub_mmihsd.jpg",
+        ],
       },
     ],
   };
 
-  /* ========================== UPCOMING ========================== */
+  /* ================= UPCOMING ================= */
   const UpcomingSection = ({ title, data }) => (
     <div className="mb-20">
       <h2 className="text-4xl font-bold text-[#9D4EDD] mb-10">{title}</h2>
@@ -67,14 +84,9 @@ export default function Events() {
             <div className="relative overflow-hidden rounded-xl group">
               <img
                 src={event.cover}
-                loading="lazy"
-                decoding="async"
                 alt={event.title}
-                onLoad={(e) => {
-                  e.currentTarget.classList.remove("opacity-0");
-                  e.currentTarget.classList.remove("blur-sm");
-                }}
-                className="w-full h-56 object-cover rounded-xl opacity-0 blur-sm transition-all duration-700 group-hover:scale-110"
+                loading="lazy"
+                className="w-full h-56 object-cover rounded-xl transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition"></div>
             </div>
@@ -91,7 +103,7 @@ export default function Events() {
     </div>
   );
 
-  /* ========================== COMPLETED ========================== */
+  /* ================= COMPLETED ================= */
   const CompletedSection = ({ title, data }) => (
     <div className="mb-20">
       <h2 className="text-4xl font-bold text-[#9D4EDD] mb-10">{title}</h2>
@@ -102,24 +114,15 @@ export default function Events() {
             key={index}
             className="bg-[#1a1a24] border border-[#9D4EDD]/20 rounded-2xl shadow-xl p-5 hover:border-[#9D4EDD]/60 transition"
           >
-            <div className="relative overflow-hidden rounded-xl group">
-              <img
-                src={event.cover}
-                loading="lazy"
-                decoding="async"
-                alt={event.title}
-                onLoad={(e) => {
-                  e.currentTarget.classList.remove("opacity-0");
-                  e.currentTarget.classList.remove("blur-sm");
-                }}
-                className="w-full h-56 object-cover rounded-xl opacity-0 blur-sm transition-all duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition"></div>
-            </div>
+            <img
+              src={event.cover}
+              alt={event.title}
+              className="w-full h-56 object-cover rounded-xl mb-4"
+            />
 
-            <h3 className="text-2xl font-bold mt-4">
+            <h3 className="text-2xl font-bold">
               {event.title}{" "}
-              <span className="text-[#9D4EDD] text-lg font-semibold">
+              <span className="text-[#9D4EDD] text-lg">
                 ({event.year})
               </span>
             </h3>
@@ -133,18 +136,12 @@ export default function Events() {
                 <div
                   key={i}
                   onClick={() => setPreviewImg(img)}
-                  className="relative group overflow-hidden rounded-lg border border-[#9D4EDD]/20 cursor-pointer hover:border-[#9D4EDD] transition"
+                  className="overflow-hidden rounded-lg cursor-pointer border border-[#9D4EDD]/20 hover:border-[#9D4EDD] transition"
                 >
                   <img
                     src={img}
-                    loading="lazy"
-                    decoding="async"
                     alt="Gallery"
-                    onLoad={(e) => {
-                      e.currentTarget.classList.remove("opacity-0");
-                      e.currentTarget.classList.remove("blur-sm");
-                    }}
-                    className="w-full h-24 object-cover opacity-0 blur-sm transition-all duration-700 group-hover:scale-110"
+                    className="h-24 w-full object-cover transition-transform duration-500 hover:scale-110"
                   />
                 </div>
               ))}
@@ -168,7 +165,7 @@ export default function Events() {
       <UpcomingSection title="Upcoming Events" data={eventsData.upcoming} />
       <CompletedSection title="Completed Events" data={eventsData.completed} />
 
-      {/* Preview Modal */}
+      {/* IMAGE PREVIEW MODAL */}
       {previewImg && (
         <div
           className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
@@ -176,14 +173,8 @@ export default function Events() {
         >
           <img
             src={previewImg}
-            loading="lazy"
-            decoding="async"
             alt="Preview"
-            onLoad={(e) => {
-              e.currentTarget.classList.remove("opacity-0");
-              e.currentTarget.classList.remove("blur-sm");
-            }}
-            className="max-w-3xl max-h-[80vh] rounded-2xl shadow-xl border border-[#9D4EDD] opacity-0 blur-sm transition-all duration-700"
+            className="max-w-4xl max-h-[80vh] rounded-2xl border border-[#9D4EDD] shadow-2xl"
           />
         </div>
       )}
