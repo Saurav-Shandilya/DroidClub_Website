@@ -11,6 +11,7 @@ const IMAGES = {
   tanishq: "https://res.cloudinary.com/duxiduyke/image/upload/v1766923774/tanishq_daulwk.webp",
   devendra: "https://res.cloudinary.com/duxiduyke/image/upload/v1766923757/Devendra_diobjv.webp",
   akshat: "https://res.cloudinary.com/duxiduyke/image/upload/v1766923753/akshat_a5emmr.webp",
+  vaidarbhi: "https://res.cloudinary.com/duxiduyke/image/upload/v1766923787/vaidarbhi_xpxaxx.webp",
   chaitanya: "https://res.cloudinary.com/duxiduyke/image/upload/v1766923752/Chaitanya_hnnp33.webp",
   keshav: "https://res.cloudinary.com/duxiduyke/image/upload/v1766923759/keshav_nvgdlk.webp",
 
