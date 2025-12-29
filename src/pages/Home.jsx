@@ -16,10 +16,10 @@ const IMAGES = {
     "https://res.cloudinary.com/duxiduyke/image/upload/v1766923798/toshit_phbd9h.png",
 
   events: [
-    "https://res.cloudinary.com/duxiduyke/image/upload/v1766923794/3_b4lbpp.png", // Codepunk
-    "https://res.cloudinary.com/duxiduyke/image/upload/v1766923795/4_wl27q5.png", // RoboWar
-    "https://res.cloudinary.com/duxiduyke/image/upload/v1766923795/5_ze5xci.png", // Line Tracing
-    "https://res.cloudinary.com/duxiduyke/image/upload/v1766923796/6_ehzswu.png", // Mechathon
+    "https://res.cloudinary.com/duxiduyke/image/upload/v1766923794/3_b4lbpp.png",
+    "https://res.cloudinary.com/duxiduyke/image/upload/v1766923795/4_wl27q5.png",
+    "https://res.cloudinary.com/duxiduyke/image/upload/v1766923795/5_ze5xci.png",
+    "https://res.cloudinary.com/duxiduyke/image/upload/v1766923796/6_ehzswu.png",
   ],
 
   leadership: {
@@ -40,17 +40,21 @@ export default function Home() {
       {/* ================= HERO ================= */}
       <section className="relative w-full pt-32 pb-24 overflow-hidden">
 
-        <div className="absolute inset-0 -z-20">
+        {/* Desktop Spline */}
+        <div className="hidden lg:block absolute inset-0 -z-20">
           <iframe
+            loading="lazy"
             src="https://my.spline.design/squarechipsfallinginplace-aYX0RY7fkZchvQzgcpI1p9az/"
             frameBorder="0"
-            width="100%"
-            height="100%"
             className="w-full h-full"
           />
         </div>
 
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0f0f13]/40 via-[#0f0f13]/70 to-[#0f0f13]/95"></div>
+        {/* Mobile Gradient */}
+        <div className="lg:hidden absolute inset-0 -z-20 bg-gradient-to-b from-[#1a1a24]/40 via-[#0f0f13]/70 to-[#0f0f13]" />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0f0f13]/40 via-[#0f0f13]/70 to-[#0f0f13]/95" />
 
         <div className="relative max-w-6xl mx-auto px-6 text-center">
           <h1 className="text-5xl md:text-7xl font-black leading-tight">
@@ -70,7 +74,6 @@ export default function Home() {
             Explore More <ArrowRight size={22} />
           </Link>
 
-          {/* Hero Image Grid */}
           <div className="grid grid-cols-3 md:grid-cols-6 gap-4 mt-14">
             {IMAGES.hero.map((img, i) => (
               <div
@@ -92,7 +95,6 @@ export default function Home() {
       {/* ================= WHO WE ARE ================= */}
       <section className="py-24 px-5 max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-
           <div className="grid grid-cols-2 gap-4">
             {IMAGES.hero.slice(0, 4).map((img, i) => (
               <img
@@ -139,19 +141,10 @@ export default function Home() {
 
         <div className="grid md:grid-cols-3 gap-10">
           {IMAGES.events.map((img, i) => (
-            <div
-              key={i}
-              className="p-4 rounded-2xl bg-[#1c1c24] border border-white/10"
-            >
-              <img
-                src={img}
-                alt={`Event ${i}`}
-                className="rounded-xl h-52 w-full object-cover mb-4"
-              />
+            <div key={i} className="p-4 rounded-2xl bg-[#1c1c24] border border-white/10">
+              <img src={img} alt={`Event ${i}`} className="rounded-xl h-52 w-full object-cover mb-4" />
               <h4 className="text-xl font-bold">Event Coming Soon</h4>
-              <p className="text-gray-400 text-sm mt-2">
-                Stay tuned for announcements.
-              </p>
+              <p className="text-gray-400 text-sm mt-2">Stay tuned for announcements.</p>
             </div>
           ))}
         </div>
@@ -164,17 +157,12 @@ export default function Home() {
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <img
-            src={IMAGES.mentor}
-            alt="Mentor Toshit Jain"
-            className="rounded-3xl h-[350px] w-full object-cover"
-          />
-
+          <img src={IMAGES.mentor} alt="Mentor" className="rounded-3xl h-[350px] w-full object-cover" />
           <div>
             <h3 className="text-3xl font-bold mb-4">Toshit Jain</h3>
             <p className="text-gray-300 text-lg">
-              The guiding force behind the DROID Club — providing vision, academic
-              support, leadership guidance, and innovation direction.
+              The guiding force behind the DROID Club — providing vision, leadership,
+              and innovation direction.
             </p>
           </div>
         </div>
@@ -188,32 +176,57 @@ export default function Home() {
 
         <div className="grid md:grid-cols-3 gap-12">
           {[
-            {
-              name: "Aditya Naulakha",
-              role: "President",
-              img: IMAGES.leadership.president,
-            },
-            {
-              name: "Harshvardhan Gupta",
-              role: "Vice President",
-              img: IMAGES.leadership.vicePresident,
-            },
-            {
-              name: "Vaishnav P Ramesh",
-              role: "General Secretary",
-              img: IMAGES.leadership.secretary,
-            },
+            { name: "Aditya Naulakha", role: "President", img: IMAGES.leadership.president },
+            { name: "Harshvardhan Gupta", role: "Vice President", img: IMAGES.leadership.vicePresident },
+            { name: "Vaishnav P Ramesh", role: "General Secretary", img: IMAGES.leadership.secretary },
           ].map((p, i) => (
             <div key={i} className="bg-[#1a1a24] rounded-xl p-6">
-              <img
-                src={p.img}
-                alt={p.name}
-                className="rounded-xl h-56 w-full object-cover mb-4"
-              />
+              <img src={p.img} alt={p.name} className="rounded-xl h-56 w-full object-cover mb-4" />
               <h3 className="text-xl font-bold">{p.name}</h3>
               <p className="text-[#9D4EDD] font-semibold">{p.role}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ================= CLUB HIGHLIGHTS (RESTORED) ================= */}
+      <section className="py-24 px-6 bg-[#13131a]">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 className="text-4xl font-extrabold mb-4">
+              Club <span className="text-[#9D4EDD]">Highlights</span>
+            </h2>
+
+            <p className="text-gray-300 text-lg leading-relaxed">
+              From workshops and hackathons to inspiring school students across Mathura —
+              DROID Club believes in learning by doing.
+              <br /><br />
+              Every year our members grow as engineers, designers, and leaders while
+              contributing to a strong technical culture on campus.
+            </p>
+
+            <Link
+              to="/about"
+              className="inline-block mt-8 px-8 py-3 rounded-full bg-[#9D4EDD] hover:bg-[#7B2CBF] transition font-bold"
+            >
+              About Club
+            </Link>
+
+          </div>
+
+          <div className="grid grid-cols-3 gap-4">
+            {IMAGES.hero.map((img, i) => (
+              <img
+                key={i}
+                src={img}
+                alt={`Highlight ${i}`}
+                loading="lazy"
+                className={`rounded-xl object-cover w-full hover:scale-105 transition ${
+                  i % 2 === 0 ? "h-32" : "h-48"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </section>
 

@@ -129,12 +129,13 @@ export default function Team() {
       <Section level={level1} size="large" />
       <Section level={level2} size="medium" />
       <Section level={level3} size="small" />
-      <Section level={level4} size="xsmall" />
+      <Section level={level4} size="xsmall" showConnector={false} />
+
     </div>
   );
 }
 
-function Section({ level, size }) {
+function Section({ level, size, showConnector = true }) {
   return (
     <div className="relative mb-20">
       <div className="flex flex-wrap justify-center gap-8">
@@ -142,10 +143,12 @@ function Section({ level, size }) {
           <TeamCard key={i} data={p} size={size} />
         ))}
       </div>
-      <Connector />
+
+      {showConnector && <Connector />}
     </div>
   );
 }
+
 
 function TeamCard({ data, size }) {
 
