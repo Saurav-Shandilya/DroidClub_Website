@@ -1,31 +1,11 @@
 import { useState } from "react";
+import { Calendar } from "lucide-react";
 
 export default function Events() {
   const [previewImg, setPreviewImg] = useState(null);
 
   const eventsData = {
-    upcoming: [
-      {
-        title: "CodePunk <V2.0/>",
-        cover:
-          "https://res.cloudinary.com/duxiduyke/image/upload/v1766923794/3_b4lbpp.png",
-      },
-      {
-        title: "TechFest RoboWar",
-        cover:
-          "https://res.cloudinary.com/duxiduyke/image/upload/v1766923795/4_wl27q5.png",
-      },
-      {
-        title: "TechFest LineTracing",
-        cover:
-          "https://res.cloudinary.com/duxiduyke/image/upload/v1766923795/5_ze5xci.png",
-      },
-      {
-        title: "TechFest Machathon",
-        cover:
-          "https://res.cloudinary.com/duxiduyke/image/upload/v1766923796/6_ehzswu.png",
-      },
-    ],
+    upcoming: [],
 
     completed: [
       {
@@ -75,31 +55,43 @@ export default function Events() {
     <div className="mb-20">
       <h2 className="text-4xl font-bold text-[#9D4EDD] mb-10">{title}</h2>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {data.map((event, index) => (
-          <div
-            key={index}
-            className="bg-[#1a1a24] border border-[#9D4EDD]/20 rounded-2xl shadow-xl p-5 hover:border-[#9D4EDD]/60 transition"
-          >
-            <div className="relative overflow-hidden rounded-xl group">
-              <img
-                src={event.cover}
-                alt={event.title}
-                loading="lazy"
-                className="w-full h-56 object-cover rounded-xl transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition"></div>
-            </div>
+      {data && data.length > 0 ? (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {data.map((event, index) => (
+            <div
+              key={index}
+              className="bg-[#1a1a24] border border-[#9D4EDD]/20 rounded-2xl shadow-xl p-5 hover:border-[#9D4EDD]/60 transition"
+            >
+              <div className="relative overflow-hidden rounded-xl group">
+                <img
+                  src={event.cover}
+                  alt={event.title}
+                  loading="lazy"
+                  className="w-full h-56 object-cover rounded-xl transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition"></div>
+              </div>
 
-            <h3 className="text-2xl font-bold mt-4">
-              {event.title}
-              <span className="block text-[#9D4EDD] text-lg font-semibold mt-1">
-                Coming Soon
-              </span>
-            </h3>
+              <h3 className="text-2xl font-bold mt-4">
+                {event.title}
+                <span className="block text-[#9D4EDD] text-lg font-semibold mt-1">
+                  Coming Soon
+                </span>
+              </h3>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="bg-[#1a1a24]/50 border border-[#9D4EDD]/20 rounded-2xl p-10 max-w-xl mx-auto text-center backdrop-blur-sm shadow-xl">
+          <div className="w-16 h-16 rounded-full bg-[#9D4EDD]/10 border border-[#9D4EDD]/30 flex items-center justify-center mx-auto mb-4">
+            <Calendar className="w-8 h-8 text-[#9D4EDD]" />
           </div>
-        ))}
-      </div>
+          <h3 className="text-2xl font-bold text-white mb-2">No Upcoming Events Right Now</h3>
+          <p className="text-gray-400 text-sm">
+            We are actively planning our next workshops, hackathons, and tech sessions. Stay tuned for announcements!
+          </p>
+        </div>
+      )}
     </div>
   );
 
