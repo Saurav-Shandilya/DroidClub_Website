@@ -221,7 +221,7 @@ export default function JoinDroidClub() {
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-sm font-medium mb-4 backdrop-blur-md">
             <Sparkles className="w-4 h-4 text-purple-400" />
-            Droid hiring 2K26
+            Droid Club hiring 2K26
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight mb-4">
