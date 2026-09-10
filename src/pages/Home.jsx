@@ -1,4 +1,4 @@
-import { ArrowRight, Users, Star, Calendar } from "lucide-react";
+import { ArrowRight, Users, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 
 /* ================= CLOUDINARY IMAGES ================= */
@@ -15,7 +15,12 @@ const IMAGES = {
   mentor:
     "https://res.cloudinary.com/duxiduyke/image/upload/v1766923798/toshit_phbd9h.png",
 
-  events: [],
+  events: [
+    "https://res.cloudinary.com/duxiduyke/image/upload/v1766923794/3_b4lbpp.png",
+    "https://res.cloudinary.com/duxiduyke/image/upload/v1766923795/4_wl27q5.png",
+    "https://res.cloudinary.com/duxiduyke/image/upload/v1766923795/5_ze5xci.png",
+    "https://res.cloudinary.com/duxiduyke/image/upload/v1766923796/6_ehzswu.png",
+  ],
 
   leadership: {
     president:
@@ -128,34 +133,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= UPCOMING EVENTS ================= */}
+      {/* ================= UPCOMING EVENTS (COMMENTED OUT) ================= */}
+      {/*
       <section className="py-24 px-6 max-w-6xl mx-auto">
         <h2 className="text-4xl font-extrabold mb-12 text-center">
           Upcoming <span className="text-[#9D4EDD]">Events</span>
         </h2>
 
-        {IMAGES.events && IMAGES.events.length > 0 ? (
-          <div className="grid md:grid-cols-3 gap-10">
-            {IMAGES.events.map((img, i) => (
-              <div key={i} className="p-4 rounded-2xl bg-[#1c1c24] border border-white/10">
-                <img src={img} alt={`Event ${i}`} className="rounded-xl h-52 w-full object-cover mb-4" />
-                <h4 className="text-xl font-bold">Event Coming Soon</h4>
-                <p className="text-gray-400 text-sm mt-2">Stay tuned for announcements.</p>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="bg-[#1a1a24]/50 border border-[#9D4EDD]/20 rounded-2xl p-10 max-w-xl mx-auto text-center backdrop-blur-sm shadow-xl">
-            <div className="w-16 h-16 rounded-full bg-[#9D4EDD]/10 border border-[#9D4EDD]/30 flex items-center justify-center mx-auto mb-4">
-              <Calendar className="w-8 h-8 text-[#9D4EDD]" />
+        <div className="grid md:grid-cols-3 gap-10">
+          {IMAGES.events.map((img, i) => (
+            <div key={i} className="p-4 rounded-2xl bg-[#1c1c24] border border-white/10">
+              <img src={img} alt={`Event ${i}`} className="rounded-xl h-52 w-full object-cover mb-4" />
+              <h4 className="text-xl font-bold">Event Coming Soon</h4>
+              <p className="text-gray-400 text-sm mt-2">Stay tuned for announcements.</p>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-2">No Upcoming Events Right Now</h3>
-            <p className="text-gray-400 text-sm">
-              We are actively planning our next workshops, hackathons, and tech sessions. Stay tuned for announcements!
-            </p>
-          </div>
-        )}
+          ))}
+        </div>
       </section>
+      */}
 
       {/* ================= MENTOR ================= */}
       <section className="py-24 px-6 max-w-6xl mx-auto">
