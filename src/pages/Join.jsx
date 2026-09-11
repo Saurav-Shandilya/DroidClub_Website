@@ -270,7 +270,7 @@ export default function JoinDroidClub() {
 
       <div className="relative z-10 w-full max-w-3xl mx-auto">
         {/* HEADER */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-6">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-sm font-medium mb-4 backdrop-blur-md">
             <Sparkles className="w-4 h-4 text-purple-400" />
             Droid Club hiring 2K26
@@ -288,89 +288,38 @@ export default function JoinDroidClub() {
           </p>
         </div>
 
-        {/* ================= 1-WEEK HIRING COUNTDOWN TIMER ================= */}
-        <div className="mb-10 max-w-xl mx-auto w-full px-2">
-          <div className="relative overflow-hidden p-4 sm:p-5 rounded-2xl bg-gradient-to-b from-[#1a1a24]/95 via-[#13131e]/95 to-[#0f0f13]/95 border border-[#9D4EDD]/35 backdrop-blur-xl shadow-[0_0_35px_rgba(157,78,221,0.2)] hover:border-[#9D4EDD]/55 transition-all duration-300">
-            {/* Top ambient purple glow line */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-[1.5px] bg-gradient-to-r from-transparent via-[#9D4EDD] to-transparent"></div>
-
-            {/* Header / Live Indicator */}
-            <div className="flex items-center justify-between gap-2 mb-3.5 pb-2.5 border-b border-[#9D4EDD]/20">
-              <div className="flex items-center gap-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span className="text-[11px] sm:text-xs font-bold tracking-wider uppercase text-white">
-                  1-Week Hiring Window
-                </span>
-              </div>
-              <span className="text-[10px] sm:text-xs font-semibold px-2.5 py-0.5 rounded-full bg-purple-500/15 border border-purple-500/30 text-purple-300">
-                Closes Soon
+        {/* ================= COMPACT 1-WEEK HIRING COUNTDOWN TIMER ================= */}
+        <div className="mb-6 flex justify-center px-2">
+          <div className="inline-flex items-center gap-2 sm:gap-3 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-[#1a1a24]/95 via-[#14141f]/95 to-[#1a1a24]/95 border border-[#9D4EDD]/40 backdrop-blur-md shadow-[0_0_20px_rgba(157,78,221,0.22)] hover:border-[#9D4EDD]/65 transition-all">
+            {/* Live Indicator */}
+            <div className="flex items-center gap-1.5 flex-shrink-0">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span className="text-[10px] sm:text-xs font-bold text-gray-300 uppercase tracking-wider">
+                Hiring Closes In
               </span>
             </div>
 
-            {/* Countdown Digits Grid */}
-            <div className="flex items-center justify-center gap-1.5 sm:gap-3 text-center">
-              {/* Days */}
-              <div className="flex flex-col items-center flex-1 max-w-[76px] sm:max-w-[88px]">
-                <div className="w-full py-2 sm:py-3 rounded-xl bg-[#0a0a0f] border border-[#9D4EDD]/30 shadow-inner">
-                  <span className="font-mono text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight">
-                    {timeLeft.days}
-                  </span>
-                </div>
-                <span className="text-[10px] sm:text-xs font-bold text-purple-200 mt-1.5 uppercase tracking-wider">
-                  Days
-                </span>
-              </div>
+            <span className="h-3.5 w-px bg-[#9D4EDD]/35"></span>
 
-              <span className="text-xl sm:text-3xl font-black text-[#9D4EDD] pb-6 animate-pulse select-none">:</span>
-
-              {/* Hours */}
-              <div className="flex flex-col items-center flex-1 max-w-[76px] sm:max-w-[88px]">
-                <div className="w-full py-2 sm:py-3 rounded-xl bg-[#0a0a0f] border border-[#9D4EDD]/30 shadow-inner">
-                  <span className="font-mono text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight">
-                    {String(timeLeft.hours).padStart(2, "0")}
-                  </span>
-                </div>
-                <span className="text-[10px] sm:text-xs font-bold text-purple-200 mt-1.5 uppercase tracking-wider">
-                  Hours
-                </span>
-              </div>
-
-              <span className="text-xl sm:text-3xl font-black text-[#9D4EDD] pb-6 animate-pulse select-none">:</span>
-
-              {/* Minutes */}
-              <div className="flex flex-col items-center flex-1 max-w-[76px] sm:max-w-[88px]">
-                <div className="w-full py-2 sm:py-3 rounded-xl bg-[#0a0a0f] border border-[#9D4EDD]/30 shadow-inner">
-                  <span className="font-mono text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight">
-                    {String(timeLeft.minutes).padStart(2, "0")}
-                  </span>
-                </div>
-                <span className="text-[10px] sm:text-xs font-bold text-purple-200 mt-1.5 uppercase tracking-wider">
-                  Minutes
-                </span>
-              </div>
-
-              <span className="text-xl sm:text-3xl font-black text-[#9D4EDD] pb-6 animate-pulse select-none">:</span>
-
-              {/* Seconds */}
-              <div className="flex flex-col items-center flex-1 max-w-[76px] sm:max-w-[88px]">
-                <div className="w-full py-2 sm:py-3 rounded-xl bg-[#0a0a0f] border border-[#9D4EDD]/45 shadow-inner">
-                  <span className="font-mono text-2xl sm:text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-white to-purple-300 tracking-tight transition-all duration-300">
-                    {String(timeLeft.seconds).padStart(2, "0")}
-                  </span>
-                </div>
-                <span className="text-[10px] sm:text-xs font-bold text-[#9D4EDD] mt-1.5 uppercase tracking-wider">
-                  Seconds
-                </span>
-              </div>
-            </div>
-
-            {/* Subtle Inline Countdown string */}
-            <div className="mt-3.5 pt-2 border-t border-[#9D4EDD]/15 text-center">
-              <span className="text-[11px] sm:text-xs font-mono font-semibold text-purple-300/90 tracking-wide">
-                ⏳ {timeLeft.days} Days : {String(timeLeft.hours).padStart(2, "0")} Hours : {String(timeLeft.minutes).padStart(2, "0")} Minutes : {String(timeLeft.seconds).padStart(2, "0")} Seconds
+            {/* Single Compact Countdown: 6D : 23H : 57M : 01S */}
+            <div className="font-mono text-xs sm:text-sm font-bold text-white flex items-center gap-1 sm:gap-1.5 tracking-tight">
+              <span className="text-white">
+                {timeLeft.days}<span className="text-[#9D4EDD] font-semibold text-[10px] sm:text-xs">D</span>
+              </span>
+              <span className="text-[#9D4EDD] font-black animate-pulse select-none">:</span>
+              <span className="text-white">
+                {String(timeLeft.hours).padStart(2, "0")}<span className="text-[#9D4EDD] font-semibold text-[10px] sm:text-xs">H</span>
+              </span>
+              <span className="text-[#9D4EDD] font-black animate-pulse select-none">:</span>
+              <span className="text-white">
+                {String(timeLeft.minutes).padStart(2, "0")}<span className="text-[#9D4EDD] font-semibold text-[10px] sm:text-xs">M</span>
+              </span>
+              <span className="text-[#9D4EDD] font-black animate-pulse select-none">:</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-200 via-white to-purple-300 transition-all duration-300">
+                {String(timeLeft.seconds).padStart(2, "0")}<span className="text-[#9D4EDD] font-semibold text-[10px] sm:text-xs">S</span>
               </span>
             </div>
           </div>
