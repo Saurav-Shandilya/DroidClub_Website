@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   CheckCircle2,
   AlertCircle,
@@ -38,7 +38,59 @@ const ACADEMIC_YEARS = [
   "2nd Year",
 ];
 
+// 1-Week Hiring Countdown Target (7 Days)
+const COUNTDOWN_STORAGE_KEY = "droid_hiring_2026_countdown_v3";
+
+function getInitialCountdownDeadline() {
+  try {
+    const saved = localStorage.getItem(COUNTDOWN_STORAGE_KEY);
+    if (saved) {
+      const parsed = parseInt(saved, 10);
+      if (parsed > Date.now()) return parsed;
+    }
+  } catch (e) {
+    // Ignore storage errors
+  }
+  // Exactly 7 days from initial session
+  const newDeadline = Date.now() + 7 * 24 * 60 * 60 * 1000;
+  try {
+    localStorage.setItem(COUNTDOWN_STORAGE_KEY, newDeadline.toString());
+  } catch (e) {
+    // Ignore storage errors
+  }
+  return newDeadline;
+}
+
 export default function JoinDroidClub() {
+  // 1-Week Hiring Countdown State
+  const [timeLeft, setTimeLeft] = useState(() => {
+    const target = getInitialCountdownDeadline();
+    const diff = Math.max(0, target - Date.now());
+    const totalSeconds = Math.max(0, Math.floor(diff / 1000));
+    return {
+      days: Math.floor(totalSeconds / 86400),
+      hours: Math.floor((totalSeconds % 86400) / 3600),
+      minutes: Math.floor((totalSeconds % 3600) / 60),
+      seconds: totalSeconds % 60,
+    };
+  });
+
+  useEffect(() => {
+    const target = getInitialCountdownDeadline();
+    const interval = setInterval(() => {
+      const diff = Math.max(0, target - Date.now());
+      const totalSeconds = Math.max(0, Math.floor(diff / 1000));
+      setTimeLeft({
+        days: Math.floor(totalSeconds / 86400),
+        hours: Math.floor((totalSeconds % 86400) / 3600),
+        minutes: Math.floor((totalSeconds % 3600) / 60),
+        seconds: totalSeconds % 60,
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   // Step management: 1 = Form, 2 = Confirmation & WhatsApp, 3 = Success
   const [step, setStep] = useState(1);
 
@@ -234,6 +286,94 @@ export default function JoinDroidClub() {
           <p className="text-gray-400 text-base sm:text-lg max-w-xl mx-auto">
             Become part of GLA University’s premier tech community. Innovate, collaborate, and build impactful technology together.
           </p>
+        </div>
+
+        {/* ================= 1-WEEK HIRING COUNTDOWN TIMER ================= */}
+        <div className="mb-10 max-w-xl mx-auto w-full px-2">
+          <div className="relative overflow-hidden p-4 sm:p-5 rounded-2xl bg-gradient-to-b from-[#1a1a24]/95 via-[#13131e]/95 to-[#0f0f13]/95 border border-[#9D4EDD]/35 backdrop-blur-xl shadow-[0_0_35px_rgba(157,78,221,0.2)] hover:border-[#9D4EDD]/55 transition-all duration-300">
+            {/* Top ambient purple glow line */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-[1.5px] bg-gradient-to-r from-transparent via-[#9D4EDD] to-transparent"></div>
+
+            {/* Header / Live Indicator */}
+            <div className="flex items-center justify-between gap-2 mb-3.5 pb-2.5 border-b border-[#9D4EDD]/20">
+              <div className="flex items-center gap-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span className="text-[11px] sm:text-xs font-bold tracking-wider uppercase text-white">
+                  1-Week Hiring Window
+                </span>
+              </div>
+              <span className="text-[10px] sm:text-xs font-semibold px-2.5 py-0.5 rounded-full bg-purple-500/15 border border-purple-500/30 text-purple-300">
+                Closes Soon
+              </span>
+            </div>
+
+            {/* Countdown Digits Grid */}
+            <div className="flex items-center justify-center gap-1.5 sm:gap-3 text-center">
+              {/* Days */}
+              <div className="flex flex-col items-center flex-1 max-w-[76px] sm:max-w-[88px]">
+                <div className="w-full py-2 sm:py-3 rounded-xl bg-[#0a0a0f] border border-[#9D4EDD]/30 shadow-inner">
+                  <span className="font-mono text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight">
+                    {timeLeft.days}
+                  </span>
+                </div>
+                <span className="text-[10px] sm:text-xs font-bold text-purple-200 mt-1.5 uppercase tracking-wider">
+                  Days
+                </span>
+              </div>
+
+              <span className="text-xl sm:text-3xl font-black text-[#9D4EDD] pb-6 animate-pulse select-none">:</span>
+
+              {/* Hours */}
+              <div className="flex flex-col items-center flex-1 max-w-[76px] sm:max-w-[88px]">
+                <div className="w-full py-2 sm:py-3 rounded-xl bg-[#0a0a0f] border border-[#9D4EDD]/30 shadow-inner">
+                  <span className="font-mono text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight">
+                    {String(timeLeft.hours).padStart(2, "0")}
+                  </span>
+                </div>
+                <span className="text-[10px] sm:text-xs font-bold text-purple-200 mt-1.5 uppercase tracking-wider">
+                  Hours
+                </span>
+              </div>
+
+              <span className="text-xl sm:text-3xl font-black text-[#9D4EDD] pb-6 animate-pulse select-none">:</span>
+
+              {/* Minutes */}
+              <div className="flex flex-col items-center flex-1 max-w-[76px] sm:max-w-[88px]">
+                <div className="w-full py-2 sm:py-3 rounded-xl bg-[#0a0a0f] border border-[#9D4EDD]/30 shadow-inner">
+                  <span className="font-mono text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight">
+                    {String(timeLeft.minutes).padStart(2, "0")}
+                  </span>
+                </div>
+                <span className="text-[10px] sm:text-xs font-bold text-purple-200 mt-1.5 uppercase tracking-wider">
+                  Minutes
+                </span>
+              </div>
+
+              <span className="text-xl sm:text-3xl font-black text-[#9D4EDD] pb-6 animate-pulse select-none">:</span>
+
+              {/* Seconds */}
+              <div className="flex flex-col items-center flex-1 max-w-[76px] sm:max-w-[88px]">
+                <div className="w-full py-2 sm:py-3 rounded-xl bg-[#0a0a0f] border border-[#9D4EDD]/45 shadow-inner">
+                  <span className="font-mono text-2xl sm:text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-white to-purple-300 tracking-tight transition-all duration-300">
+                    {String(timeLeft.seconds).padStart(2, "0")}
+                  </span>
+                </div>
+                <span className="text-[10px] sm:text-xs font-bold text-[#9D4EDD] mt-1.5 uppercase tracking-wider">
+                  Seconds
+                </span>
+              </div>
+            </div>
+
+            {/* Subtle Inline Countdown string */}
+            <div className="mt-3.5 pt-2 border-t border-[#9D4EDD]/15 text-center">
+              <span className="text-[11px] sm:text-xs font-mono font-semibold text-purple-300/90 tracking-wide">
+                ⏳ {timeLeft.days} Days : {String(timeLeft.hours).padStart(2, "0")} Hours : {String(timeLeft.minutes).padStart(2, "0")} Minutes : {String(timeLeft.seconds).padStart(2, "0")} Seconds
+              </span>
+            </div>
+          </div>
         </div>
 
         {/* PROGRESS STEPPER */}
