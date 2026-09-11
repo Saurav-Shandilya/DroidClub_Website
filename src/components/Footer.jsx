@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const [faqOpen, setFaqOpen] = useState(null);
@@ -103,9 +104,9 @@ export default function Footer() {
         </a>
       </div>
 
-      {/* <p className="text-center text-gray-500 mt-6 text-sm">
+      <p className="text-center text-gray-500 mt-8 text-xs">
         © {new Date().getFullYear()} Droid Club — All Rights Reserved
-      </p> */}
+      </p>
     </footer>
   );
 }
