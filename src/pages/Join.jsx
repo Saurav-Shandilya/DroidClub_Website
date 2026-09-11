@@ -103,6 +103,8 @@ export default function JoinDroidClub() {
     university_mail: "",
     academic_year: "",
     applying_for: "",
+    why_join: "",
+    contribution_upskill: "",
     join_whatsapp: "Yes", // Default to Yes
   });
 
@@ -161,6 +163,14 @@ export default function JoinDroidClub() {
       errors.applying_for = "Please select the team you are applying for";
     }
 
+    if (!formData.why_join.trim()) {
+      errors.why_join = "Please tell us why you want to join our club";
+    }
+
+    if (!formData.contribution_upskill.trim()) {
+      errors.contribution_upskill = "Please tell us how you will upskill and contribute";
+    }
+
     setValidationErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -196,8 +206,10 @@ export default function JoinDroidClub() {
           branch: formData.branch.trim(),
           university_mail: formData.university_mail.trim(),
           academic_year: formData.academic_year,
-          join_whatsapp: formData.join_whatsapp || "Yes",
           applying_for: formData.applying_for,
+          why_join: formData.why_join.trim(),
+          contribution_upskill: formData.contribution_upskill.trim(),
+          join_whatsapp: formData.join_whatsapp || "Yes",
           status: "Pending",
           remark: "",
         },
@@ -249,6 +261,8 @@ export default function JoinDroidClub() {
       university_mail: "",
       academic_year: "",
       applying_for: "",
+      why_join: "",
+      contribution_upskill: "",
       join_whatsapp: "Yes",
     });
     setHasClickedWhatsapp(false);
@@ -722,6 +736,60 @@ export default function JoinDroidClub() {
                 </div>
               </div>
 
+              {/* Question 1: Why do you want to join our club? */}
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  Why do you want to join our club? <span className="text-purple-400">*</span>
+                </label>
+                <div className="relative">
+                  <textarea
+                    name="why_join"
+                    required
+                    rows={3}
+                    placeholder="Tell us what motivates you to join Droid Club and what you hope to achieve..."
+                    value={formData.why_join}
+                    onChange={handleChange}
+                    className={`w-full bg-[#0f0f13] border ${
+                      validationErrors.why_join
+                        ? "border-red-500"
+                        : "border-[#9D4EDD]/30 focus:border-[#9D4EDD] focus:shadow-[0_0_10px_rgba(157,78,221,0.2)]"
+                    } rounded-xl px-4 py-3 text-white placeholder-gray-500 outline-none transition resize-none`}
+                  />
+                </div>
+                {validationErrors.why_join && (
+                  <p className="text-red-400 text-xs mt-1.5">
+                    {validationErrors.why_join}
+                  </p>
+                )}
+              </div>
+
+              {/* Question 2: If selected, how will you upskill yourself and contribute to the club’s growth and reputation? */}
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  If selected, how will you upskill yourself and contribute to the club’s growth and reputation? <span className="text-purple-400">*</span>
+                </label>
+                <div className="relative">
+                  <textarea
+                    name="contribution_upskill"
+                    required
+                    rows={3}
+                    placeholder="Share the skills you plan to learn and how you will actively contribute to club projects, events, and reputation..."
+                    value={formData.contribution_upskill}
+                    onChange={handleChange}
+                    className={`w-full bg-[#0f0f13] border ${
+                      validationErrors.contribution_upskill
+                        ? "border-red-500"
+                        : "border-[#9D4EDD]/30 focus:border-[#9D4EDD] focus:shadow-[0_0_10px_rgba(157,78,221,0.2)]"
+                    } rounded-xl px-4 py-3 text-white placeholder-gray-500 outline-none transition resize-none`}
+                  />
+                </div>
+                {validationErrors.contribution_upskill && (
+                  <p className="text-red-400 text-xs mt-1.5">
+                    {validationErrors.contribution_upskill}
+                  </p>
+                )}
+              </div>
+
               {/* Confirm Registration Button */}
               <div className="pt-4">
                 <button
@@ -804,6 +872,24 @@ export default function JoinDroidClub() {
                 <div className="bg-[#0f0f13]/80 p-3.5 rounded-xl border border-white/5 sm:col-span-2">
                   <span className="text-gray-400 text-xs block mb-0.5">Academic Year</span>
                   <span className="font-medium text-gray-200">{formData.academic_year}</span>
+                </div>
+
+                {/* Why do you want to join our club? */}
+                <div className="bg-[#0f0f13]/80 p-3.5 rounded-xl border border-white/5 sm:col-span-2">
+                  <span className="text-gray-400 text-xs block mb-1">Why do you want to join our club?</span>
+                  <p className="font-medium text-gray-200 text-xs sm:text-sm whitespace-pre-wrap leading-relaxed">
+                    {formData.why_join}
+                  </p>
+                </div>
+
+                {/* Upskill & Contribution */}
+                <div className="bg-[#0f0f13]/80 p-3.5 rounded-xl border border-white/5 sm:col-span-2">
+                  <span className="text-gray-400 text-xs block mb-1">
+                    If selected, how will you upskill yourself and contribute to the club’s growth and reputation?
+                  </span>
+                  <p className="font-medium text-gray-200 text-xs sm:text-sm whitespace-pre-wrap leading-relaxed">
+                    {formData.contribution_upskill}
+                  </p>
                 </div>
               </div>
             </div>
