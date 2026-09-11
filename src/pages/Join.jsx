@@ -29,7 +29,6 @@ const TEAMS = [
   "AI / ML Team",
   "PR & Event Team",
   "Content Team",
-  "Game dev",
 ];
 
 // Academic year restricted strictly to 1st and 2nd year as requested
