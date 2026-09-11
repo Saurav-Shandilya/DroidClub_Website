@@ -20,7 +20,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
 const SHEETDB_URL = "https://sheetdb.io/api/v1/at65dlqnqox36";
 const WHATSAPP_INVITE_URL =
-  "https://chat.whatsapp.com/FNyf7WIv24LI5EGZ5Pkzf2?s=cl&p=a&mlu=4&ilr=4";
+  "https://chat.whatsapp.com/ETEDtq6lOZ9J1RkKRgWPCc?s=cl&p=a&mlu=4&ilr=4";
 
 const TEAMS = [
   "Technical Team",
@@ -830,7 +830,7 @@ export default function JoinDroidClub() {
               </div>
 
               {/* WhatsApp CTA Button */}
-              <div className="mb-6">
+              <div className="mb-5">
                 <a
                   href={WHATSAPP_INVITE_URL}
                   target="_blank"
@@ -850,6 +850,23 @@ export default function JoinDroidClub() {
                     <CheckCircle2 className="w-4 h-4" /> Link opened in new tab.
                   </p>
                 )}
+              </div>
+
+              {/* WhatsApp QR Code Option */}
+              <div className="mb-6 flex flex-col sm:flex-row items-center justify-center gap-4 p-4 rounded-2xl bg-black/40 border border-emerald-500/25">
+                <img
+                  src="/droidclub_join_qr.png"
+                  alt="Droid Club WhatsApp QR Code"
+                  className="w-24 h-24 rounded-xl bg-white p-1.5 shadow-lg border border-white/20 object-contain"
+                />
+                <div className="text-center sm:text-left">
+                  <p className="text-white text-sm font-semibold mb-1">
+                    Or Scan with Phone Camera
+                  </p>
+                  <p className="text-gray-300 text-xs max-w-xs leading-relaxed">
+                    Scan this QR code with your mobile camera or WhatsApp to join the official community group instantly.
+                  </p>
+                </div>
               </div>
 
               {/* QUESTION: Did you join the WhatsApp group? */}
