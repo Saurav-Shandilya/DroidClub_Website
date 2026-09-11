@@ -260,7 +260,7 @@ export default function JoinDroidClub() {
   };
 
   return (
-    <section className="relative w-full min-h-screen text-white overflow-hidden bg-[#000003] flex flex-col items-center justify-start pt-32 pb-24 px-4 sm:px-6">
+    <section className="relative w-full min-h-screen text-white overflow-hidden bg-[#000003] flex flex-col items-center justify-start pt-24 sm:pt-28 pb-16 px-4 sm:px-6">
       {/* Background glow effects */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute top-10 left-1/4 w-96 h-96 bg-purple-600/15 blur-[160px] rounded-full"></div>
@@ -270,26 +270,26 @@ export default function JoinDroidClub() {
 
       <div className="relative z-10 w-full max-w-3xl mx-auto">
         {/* HEADER */}
-        <div className="text-center mb-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-sm font-medium mb-4 backdrop-blur-md">
-            <Sparkles className="w-4 h-4 text-purple-400" />
+        <div className="text-center mb-4 sm:mb-5">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-medium mb-2.5 sm:mb-3 backdrop-blur-md">
+            <Sparkles className="w-3.5 h-3.5 text-purple-400" />
             Droid Club hiring 2K26
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-2.5 sm:mb-3">
             Join the{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-[#9D4EDD] to-indigo-300">
               Droid Club
             </span>
           </h1>
 
-          <p className="text-gray-400 text-base sm:text-lg max-w-xl mx-auto">
+          <p className="text-gray-400 text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
             Become part of GLA University’s premier tech community. Innovate, collaborate, and build impactful technology together.
           </p>
         </div>
 
         {/* ================= COMPACT NEON FLIP-CLOCK COUNTDOWN TIMER ================= */}
-        <div className="mt-3 mb-6 flex justify-center px-2">
+        <div className="mt-2.5 mb-5 sm:mb-6 flex justify-center px-2">
           <div className="flex flex-col items-center px-4 py-3 rounded-2xl bg-[#140924]/75 border border-[#9D4EDD]/30 backdrop-blur-md shadow-[0_0_20px_rgba(157,78,221,0.2)]">
             {/* Heading */}
             <div className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] text-purple-200/90 uppercase mb-2 flex items-center gap-1.5">
@@ -381,7 +381,7 @@ export default function JoinDroidClub() {
         </div>
 
         {/* PROGRESS STEPPER */}
-        <div className="flex items-center justify-center mb-10">
+        <div className="flex items-center justify-center mb-6 sm:mb-8">
           <div className="flex items-center space-x-3 sm:space-x-4">
             {/* Step 1 Indicator */}
             <div className="flex items-center space-x-2">
