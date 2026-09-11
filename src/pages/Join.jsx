@@ -288,39 +288,94 @@ export default function JoinDroidClub() {
           </p>
         </div>
 
-        {/* ================= COMPACT 1-WEEK HIRING COUNTDOWN TIMER ================= */}
-        <div className="mb-6 flex justify-center px-2">
-          <div className="inline-flex items-center gap-2 sm:gap-3 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-[#1a1a24]/95 via-[#14141f]/95 to-[#1a1a24]/95 border border-[#9D4EDD]/40 backdrop-blur-md shadow-[0_0_20px_rgba(157,78,221,0.22)] hover:border-[#9D4EDD]/65 transition-all">
-            {/* Live Indicator */}
-            <div className="flex items-center gap-1.5 flex-shrink-0">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span className="text-[10px] sm:text-xs font-bold text-gray-300 uppercase tracking-wider">
-                Hiring Closes In
-              </span>
+        {/* ================= COMPACT NEON FLIP-CLOCK COUNTDOWN TIMER ================= */}
+        <div className="mt-3 mb-6 flex justify-center px-2">
+          <div className="flex flex-col items-center px-4 py-3 rounded-2xl bg-[#140924]/75 border border-[#9D4EDD]/30 backdrop-blur-md shadow-[0_0_20px_rgba(157,78,221,0.2)]">
+            {/* Heading */}
+            <div className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] text-purple-200/90 uppercase mb-2 flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#ff5c93] animate-pulse shadow-[0_0_6px_#ff5c93]" />
+              COUNTDOWN TIMER
             </div>
 
-            <span className="h-3.5 w-px bg-[#9D4EDD]/35"></span>
+            {/* 4 Neon Flip-Cards Row */}
+            <div className="flex items-center gap-1.5 sm:gap-2.5">
+              {/* DAY */}
+              <div className="flex flex-col items-center">
+                <span className="text-[9px] sm:text-[10px] font-bold text-purple-300/80 tracking-wider uppercase mb-1">
+                  DAY
+                </span>
+                <div className="relative w-11 sm:w-12 h-12 sm:h-14 rounded-lg sm:rounded-xl bg-gradient-to-b from-[#2e1342] via-[#200e2e] to-[#14081c] border border-purple-500/40 shadow-[0_0_12px_rgba(157,78,221,0.25),inset_0_1px_1px_rgba(255,255,255,0.15)] flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[1px] bg-black/75 border-b border-purple-400/20 z-10 pointer-events-none" />
+                  <div className="absolute -left-[1px] top-1/2 -translate-y-1/2 w-1 h-2 bg-[#140924] rounded-r-full z-20 pointer-events-none" />
+                  <div className="absolute -right-[1px] top-1/2 -translate-y-1/2 w-1 h-2 bg-[#140924] rounded-l-full z-20 pointer-events-none" />
+                  <span className="relative z-0 font-mono text-base sm:text-lg font-black tracking-tight text-[#ff5c93] drop-shadow-[0_0_8px_rgba(255,92,147,0.85)] select-none">
+                    {String(timeLeft.days).padStart(2, "0")}
+                  </span>
+                </div>
+              </div>
 
-            {/* Single Compact Countdown: 6D : 23H : 57M : 01S */}
-            <div className="font-mono text-xs sm:text-sm font-bold text-white flex items-center gap-1 sm:gap-1.5 tracking-tight">
-              <span className="text-white">
-                {timeLeft.days}<span className="text-[#9D4EDD] font-semibold text-[10px] sm:text-xs">D</span>
-              </span>
-              <span className="text-[#9D4EDD] font-black animate-pulse select-none">:</span>
-              <span className="text-white">
-                {String(timeLeft.hours).padStart(2, "0")}<span className="text-[#9D4EDD] font-semibold text-[10px] sm:text-xs">H</span>
-              </span>
-              <span className="text-[#9D4EDD] font-black animate-pulse select-none">:</span>
-              <span className="text-white">
-                {String(timeLeft.minutes).padStart(2, "0")}<span className="text-[#9D4EDD] font-semibold text-[10px] sm:text-xs">M</span>
-              </span>
-              <span className="text-[#9D4EDD] font-black animate-pulse select-none">:</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-200 via-white to-purple-300 transition-all duration-300">
-                {String(timeLeft.seconds).padStart(2, "0")}<span className="text-[#9D4EDD] font-semibold text-[10px] sm:text-xs">S</span>
-              </span>
+              {/* Colon */}
+              <div className="flex flex-col gap-1.5 self-center mt-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#ff5c93] shadow-[0_0_6px_#ff5c93]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#ff5c93] shadow-[0_0_6px_#ff5c93]" />
+              </div>
+
+              {/* HOUR */}
+              <div className="flex flex-col items-center">
+                <span className="text-[9px] sm:text-[10px] font-bold text-purple-300/80 tracking-wider uppercase mb-1">
+                  HOUR
+                </span>
+                <div className="relative w-11 sm:w-12 h-12 sm:h-14 rounded-lg sm:rounded-xl bg-gradient-to-b from-[#2e1342] via-[#200e2e] to-[#14081c] border border-purple-500/40 shadow-[0_0_12px_rgba(157,78,221,0.25),inset_0_1px_1px_rgba(255,255,255,0.15)] flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[1px] bg-black/75 border-b border-purple-400/20 z-10 pointer-events-none" />
+                  <div className="absolute -left-[1px] top-1/2 -translate-y-1/2 w-1 h-2 bg-[#140924] rounded-r-full z-20 pointer-events-none" />
+                  <div className="absolute -right-[1px] top-1/2 -translate-y-1/2 w-1 h-2 bg-[#140924] rounded-l-full z-20 pointer-events-none" />
+                  <span className="relative z-0 font-mono text-base sm:text-lg font-black tracking-tight text-[#ff5c93] drop-shadow-[0_0_8px_rgba(255,92,147,0.85)] select-none">
+                    {String(timeLeft.hours).padStart(2, "0")}
+                  </span>
+                </div>
+              </div>
+
+              {/* Colon */}
+              <div className="flex flex-col gap-1.5 self-center mt-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#ff5c93] shadow-[0_0_6px_#ff5c93]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#ff5c93] shadow-[0_0_6px_#ff5c93]" />
+              </div>
+
+              {/* MINUTE */}
+              <div className="flex flex-col items-center">
+                <span className="text-[9px] sm:text-[10px] font-bold text-purple-300/80 tracking-wider uppercase mb-1">
+                  MINUTE
+                </span>
+                <div className="relative w-11 sm:w-12 h-12 sm:h-14 rounded-lg sm:rounded-xl bg-gradient-to-b from-[#2e1342] via-[#200e2e] to-[#14081c] border border-purple-500/40 shadow-[0_0_12px_rgba(157,78,221,0.25),inset_0_1px_1px_rgba(255,255,255,0.15)] flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[1px] bg-black/75 border-b border-purple-400/20 z-10 pointer-events-none" />
+                  <div className="absolute -left-[1px] top-1/2 -translate-y-1/2 w-1 h-2 bg-[#140924] rounded-r-full z-20 pointer-events-none" />
+                  <div className="absolute -right-[1px] top-1/2 -translate-y-1/2 w-1 h-2 bg-[#140924] rounded-l-full z-20 pointer-events-none" />
+                  <span className="relative z-0 font-mono text-base sm:text-lg font-black tracking-tight text-[#ff5c93] drop-shadow-[0_0_8px_rgba(255,92,147,0.85)] select-none">
+                    {String(timeLeft.minutes).padStart(2, "0")}
+                  </span>
+                </div>
+              </div>
+
+              {/* Colon */}
+              <div className="flex flex-col gap-1.5 self-center mt-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#ff5c93] shadow-[0_0_6px_#ff5c93]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#ff5c93] shadow-[0_0_6px_#ff5c93]" />
+              </div>
+
+              {/* SECOND */}
+              <div className="flex flex-col items-center">
+                <span className="text-[9px] sm:text-[10px] font-bold text-purple-300/80 tracking-wider uppercase mb-1">
+                  SECOND
+                </span>
+                <div className="relative w-11 sm:w-12 h-12 sm:h-14 rounded-lg sm:rounded-xl bg-gradient-to-b from-[#2e1342] via-[#200e2e] to-[#14081c] border border-purple-500/40 shadow-[0_0_12px_rgba(157,78,221,0.25),inset_0_1px_1px_rgba(255,255,255,0.15)] flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[1px] bg-black/75 border-b border-purple-400/20 z-10 pointer-events-none" />
+                  <div className="absolute -left-[1px] top-1/2 -translate-y-1/2 w-1 h-2 bg-[#140924] rounded-r-full z-20 pointer-events-none" />
+                  <div className="absolute -right-[1px] top-1/2 -translate-y-1/2 w-1 h-2 bg-[#140924] rounded-l-full z-20 pointer-events-none" />
+                  <span className="relative z-0 font-mono text-base sm:text-lg font-black tracking-tight text-[#ff5c93] drop-shadow-[0_0_8px_rgba(255,92,147,0.85)] select-none">
+                    {String(timeLeft.seconds).padStart(2, "0")}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
