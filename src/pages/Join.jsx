@@ -15,6 +15,7 @@ import {
   Layers,
   Building2,
   Calendar,
+  Linkedin,
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -37,54 +38,35 @@ const ACADEMIC_YEARS = [
   "2nd Year",
 ];
 
-// 1-Week Hiring Countdown Target (7 Days)
-const COUNTDOWN_STORAGE_KEY = "droid_hiring_2026_countdown_v3";
+// Hiring / Application Deadline: 14 October 2026, 23:59:59 IST
+export const APPLICATION_DEADLINE = new Date("2026-10-14T23:59:59+05:30").getTime();
 
-function getInitialCountdownDeadline() {
-  try {
-    const saved = localStorage.getItem(COUNTDOWN_STORAGE_KEY);
-    if (saved) {
-      const parsed = parseInt(saved, 10);
-      if (parsed > Date.now()) return parsed;
-    }
-  } catch (e) {
-    // Ignore storage errors
-  }
-  // Exactly 7 days from initial session
-  const newDeadline = Date.now() + 7 * 24 * 60 * 60 * 1000;
-  try {
-    localStorage.setItem(COUNTDOWN_STORAGE_KEY, newDeadline.toString());
-  } catch (e) {
-    // Ignore storage errors
-  }
-  return newDeadline;
+function calculateTimeLeft() {
+  const diff = Math.max(0, APPLICATION_DEADLINE - Date.now());
+  const totalSeconds = Math.max(0, Math.floor(diff / 1000));
+  return {
+    days: Math.floor(totalSeconds / 86400),
+    hours: Math.floor((totalSeconds % 86400) / 3600),
+    minutes: Math.floor((totalSeconds % 3600) / 60),
+    seconds: totalSeconds % 60,
+    isExpired: diff <= 0,
+  };
 }
 
 export default function JoinDroidClub() {
-  // 1-Week Hiring Countdown State
-  const [timeLeft, setTimeLeft] = useState(() => {
-    const target = getInitialCountdownDeadline();
-    const diff = Math.max(0, target - Date.now());
-    const totalSeconds = Math.max(0, Math.floor(diff / 1000));
-    return {
-      days: Math.floor(totalSeconds / 86400),
-      hours: Math.floor((totalSeconds % 86400) / 3600),
-      minutes: Math.floor((totalSeconds % 3600) / 60),
-      seconds: totalSeconds % 60,
-    };
-  });
+  // Hiring / Application Countdown State (Target: 14 October 2026)
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft);
 
   useEffect(() => {
-    const target = getInitialCountdownDeadline();
+    // Clear legacy rolling countdown from localStorage
+    try {
+      localStorage.removeItem("droid_hiring_2026_countdown_v3");
+    } catch (e) {
+      // Ignore storage errors
+    }
+
     const interval = setInterval(() => {
-      const diff = Math.max(0, target - Date.now());
-      const totalSeconds = Math.max(0, Math.floor(diff / 1000));
-      setTimeLeft({
-        days: Math.floor(totalSeconds / 86400),
-        hours: Math.floor((totalSeconds % 86400) / 3600),
-        minutes: Math.floor((totalSeconds % 3600) / 60),
-        seconds: totalSeconds % 60,
-      });
+      setTimeLeft(calculateTimeLeft());
     }, 1000);
 
     return () => clearInterval(interval);
@@ -101,6 +83,7 @@ export default function JoinDroidClub() {
     course: "",
     branch: "",
     university_mail: "",
+    linkedin_id: "",
     academic_year: "",
     applying_for: "",
     why_join: "",
@@ -155,6 +138,10 @@ export default function JoinDroidClub() {
       errors.university_mail = "Enter a valid university email address";
     }
 
+    if (!formData.linkedin_id.trim()) {
+      errors.linkedin_id = "LinkedIn profile ID or URL is required";
+    }
+
     if (!formData.academic_year) {
       errors.academic_year = "Please select your academic year";
     }
@@ -178,6 +165,10 @@ export default function JoinDroidClub() {
   // Proceed from Step 1 to Step 2 (Confirm Registration)
   const handleProceedToConfirm = (e) => {
     e.preventDefault();
+    if (timeLeft.isExpired) {
+      alert("Application deadline of 14 October 2026 has passed. Registrations are now closed.");
+      return;
+    }
     if (validateForm()) {
       window.scrollTo({ top: 0, behavior: "smooth" });
       setStep(2);
@@ -186,6 +177,10 @@ export default function JoinDroidClub() {
 
   // Final submission to SheetDB
   const handleFinalSubmit = async () => {
+    if (timeLeft.isExpired) {
+      setErrorMessage("The application deadline of 14 October 2026 has passed. Registrations are closed.");
+      return;
+    }
     setLoading(true);
     setErrorMessage(null);
 
@@ -205,6 +200,7 @@ export default function JoinDroidClub() {
           course: formData.course.trim(),
           branch: formData.branch.trim(),
           university_mail: formData.university_mail.trim(),
+          linkedin_id: formData.linkedin_id.trim(),
           academic_year: formData.academic_year,
           applying_for: formData.applying_for,
           why_join: formData.why_join.trim(),
@@ -259,6 +255,7 @@ export default function JoinDroidClub() {
       course: "",
       branch: "",
       university_mail: "",
+      linkedin_id: "",
       academic_year: "",
       applying_for: "",
       why_join: "",
@@ -286,7 +283,7 @@ export default function JoinDroidClub() {
         <div className="text-center mb-4 sm:mb-5">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-medium mb-2.5 sm:mb-3 backdrop-blur-md">
             <Sparkles className="w-3.5 h-3.5 text-purple-400" />
-            Droid Club hiring 2K26
+            Droid Club hiring 2K26 • Closes 14 Oct 2026
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-2.5 sm:mb-3">
@@ -297,7 +294,7 @@ export default function JoinDroidClub() {
           </h1>
 
           <p className="text-gray-400 text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
-            Become part of GLA University’s premier tech community. Innovate, collaborate, and build impactful technology together.
+            Become part of GLA University’s premier tech community. Applications are open until 14 October 2026.
           </p>
         </div>
 
@@ -305,12 +302,19 @@ export default function JoinDroidClub() {
         <div className="mt-2.5 mb-5 sm:mb-6 flex justify-center px-2">
           <div className="flex flex-col items-center px-4 py-3 rounded-2xl bg-[#140924]/75 border border-[#9D4EDD]/30 backdrop-blur-md shadow-[0_0_20px_rgba(157,78,221,0.2)]">
             {/* Heading */}
-            <div className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] text-purple-200/90 uppercase mb-2 flex items-center gap-1.5">
+            <div className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] sm:tracking-[0.25em] text-purple-200/90 uppercase mb-2 flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#ff5c93] animate-pulse shadow-[0_0_6px_#ff5c93]" />
-              COUNTDOWN TIMER
+              APPLICATION DEADLINE: 14 OCTOBER 2026
             </div>
 
-            {/* 4 Neon Flip-Cards Row */}
+            {timeLeft.isExpired ? (
+              <div className="py-2 px-6 text-center">
+                <p className="text-[#ff5c93] font-bold text-sm sm:text-base tracking-wide">
+                  Applications Closed on 14 October 2026
+                </p>
+              </div>
+            ) : (
+            /* 4 Neon Flip-Cards Row */
             <div className="flex items-center gap-1.5 sm:gap-2.5">
               {/* DAY */}
               <div className="flex flex-col items-center">
@@ -390,6 +394,7 @@ export default function JoinDroidClub() {
                 </div>
               </div>
             </div>
+            )}
           </div>
         </div>
 
@@ -572,32 +577,61 @@ export default function JoinDroidClub() {
                 </div>
               </div>
 
-              {/* University Mail */}
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  University Email ID <span className="text-purple-400">*</span>
-                </label>
-                <div className="relative">
-                  <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <input
-                    type="email"
-                    name="university_mail"
-                    required
-                    placeholder="e.g. yourname_cs24@gla.ac.in"
-                    value={formData.university_mail}
-                    onChange={handleChange}
-                    className={`w-full bg-[#0f0f13] border ${
-                      validationErrors.university_mail
-                        ? "border-red-500"
-                        : "border-[#9D4EDD]/30 focus:border-[#9D4EDD]"
-                    } rounded-xl pl-12 pr-4 py-3.5 text-white placeholder-gray-500 outline-none transition`}
-                  />
+              {/* University Mail & LinkedIn ID */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    University Email ID <span className="text-purple-400">*</span>
+                  </label>
+                  <div className="relative">
+                    <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="email"
+                      name="university_mail"
+                      required
+                      placeholder="e.g. yourname_cs24@gla.ac.in"
+                      value={formData.university_mail}
+                      onChange={handleChange}
+                      className={`w-full bg-[#0f0f13] border ${
+                        validationErrors.university_mail
+                          ? "border-red-500"
+                          : "border-[#9D4EDD]/30 focus:border-[#9D4EDD]"
+                      } rounded-xl pl-12 pr-4 py-3.5 text-white placeholder-gray-500 outline-none transition`}
+                    />
+                  </div>
+                  {validationErrors.university_mail && (
+                    <p className="text-red-400 text-xs mt-1.5">
+                      {validationErrors.university_mail}
+                    </p>
+                  )}
                 </div>
-                {validationErrors.university_mail && (
-                  <p className="text-red-400 text-xs mt-1.5">
-                    {validationErrors.university_mail}
-                  </p>
-                )}
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    LinkedIn Profile (ID or URL) <span className="text-purple-400">*</span>
+                  </label>
+                  <div className="relative">
+                    <Linkedin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="text"
+                      name="linkedin_id"
+                      required
+                      placeholder="e.g. linkedin.com/in/username"
+                      value={formData.linkedin_id}
+                      onChange={handleChange}
+                      className={`w-full bg-[#0f0f13] border ${
+                        validationErrors.linkedin_id
+                          ? "border-red-500"
+                          : "border-[#9D4EDD]/30 focus:border-[#9D4EDD]"
+                      } rounded-xl pl-12 pr-4 py-3.5 text-white placeholder-gray-500 outline-none transition`}
+                    />
+                  </div>
+                  {validationErrors.linkedin_id && (
+                    <p className="text-red-400 text-xs mt-1.5">
+                      {validationErrors.linkedin_id}
+                    </p>
+                  )}
+                </div>
               </div>
 
               {/* Course (Text Input) & Branch */}
@@ -794,10 +828,15 @@ export default function JoinDroidClub() {
               <div className="pt-4">
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-[#9D4EDD] to-[#7B2CBF] hover:from-[#8b3fd0] hover:to-[#6a22aa] text-white font-bold text-lg py-4 rounded-xl shadow-[0_0_25px_rgba(157,78,221,0.4)] hover:shadow-[0_0_35px_rgba(157,78,221,0.6)] transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+                  disabled={timeLeft.isExpired}
+                  className={`w-full flex items-center justify-center gap-3 text-white font-bold text-lg py-4 rounded-xl transition-all transform ${
+                    timeLeft.isExpired
+                      ? "bg-gray-700/60 cursor-not-allowed opacity-60"
+                      : "bg-gradient-to-r from-[#9D4EDD] to-[#7B2CBF] hover:from-[#8b3fd0] hover:to-[#6a22aa] shadow-[0_0_25px_rgba(157,78,221,0.4)] hover:shadow-[0_0_35px_rgba(157,78,221,0.6)] hover:-translate-y-0.5 active:translate-y-0"
+                  }`}
                 >
-                  <span>Confirm Registration</span>
-                  <ArrowRight className="w-5 h-5" />
+                  <span>{timeLeft.isExpired ? "Applications Closed (14 Oct 2026)" : "Confirm Registration"}</span>
+                  {!timeLeft.isExpired && <ArrowRight className="w-5 h-5" />}
                 </button>
                 <p className="text-center text-xs text-gray-500 mt-3">
                   Clicking "Confirm Registration" will let you review your details and join our official WhatsApp group.
@@ -863,13 +902,18 @@ export default function JoinDroidClub() {
                 </div>
 
                 <div className="bg-[#0f0f13]/80 p-3.5 rounded-xl border border-white/5">
+                  <span className="text-gray-400 text-xs block mb-0.5">LinkedIn Profile</span>
+                  <span className="font-medium text-purple-300 break-all">{formData.linkedin_id}</span>
+                </div>
+
+                <div className="bg-[#0f0f13]/80 p-3.5 rounded-xl border border-white/5">
                   <span className="text-gray-400 text-xs block mb-0.5">Course & Branch</span>
                   <span className="font-medium text-gray-200">
                     {formData.course} • {formData.branch}
                   </span>
                 </div>
 
-                <div className="bg-[#0f0f13]/80 p-3.5 rounded-xl border border-white/5 sm:col-span-2">
+                <div className="bg-[#0f0f13]/80 p-3.5 rounded-xl border border-white/5">
                   <span className="text-gray-400 text-xs block mb-0.5">Academic Year</span>
                   <span className="font-medium text-gray-200">{formData.academic_year}</span>
                 </div>
@@ -1027,7 +1071,7 @@ export default function JoinDroidClub() {
               <button
                 type="button"
                 onClick={handleFinalSubmit}
-                disabled={loading}
+                disabled={loading || timeLeft.isExpired}
                 className="w-full sm:flex-1 flex items-center justify-center gap-3 bg-gradient-to-r from-[#9D4EDD] to-[#7B2CBF] hover:from-[#8b3fd0] hover:to-[#6a22aa] text-white font-bold text-lg py-4 px-8 rounded-xl shadow-[0_0_30px_rgba(157,78,221,0.5)] hover:shadow-[0_0_40px_rgba(157,78,221,0.7)] transition-all transform hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? (
@@ -1035,6 +1079,8 @@ export default function JoinDroidClub() {
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                     <span>Submitting Registration...</span>
                   </>
+                ) : timeLeft.isExpired ? (
+                  <span>Applications Closed (14 Oct 2026)</span>
                 ) : (
                   <>
                     <span>Submit Registration</span>

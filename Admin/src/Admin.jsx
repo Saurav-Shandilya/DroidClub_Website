@@ -10,6 +10,7 @@ import {
   ChevronLeft,
   ChevronRight,
   ChevronDown,
+  ExternalLink,
 } from "lucide-react";
 
 const SHEETDB_API_URL =
@@ -86,6 +87,7 @@ export default function Admin() {
             name: (item.full_name || "Applicant").trim(),
             email: (item.email || "").trim(),
             phone: (item.phone_whatsapp || "").trim(),
+            linkedin_id: (item.linkedin_id || "").trim(),
             college: (item.course || item.branch)
               ? `${item.course || ""} ${item.branch || ""}`.trim()
               : "GLA University",
@@ -225,6 +227,7 @@ export default function Admin() {
           app.name.toLowerCase().includes(q) ||
           app.email.toLowerCase().includes(q) ||
           app.phone.toLowerCase().includes(q) ||
+          (app.linkedin_id || "").toLowerCase().includes(q) ||
           app.college.toLowerCase().includes(q) ||
           app.year.toLowerCase().includes(q) ||
           app.role.toLowerCase().includes(q) ||
@@ -321,6 +324,9 @@ export default function Admin() {
                 Droid Club
               </span>
             </h1>
+            <p className="text-xs text-purple-300/80 mt-1 font-medium">
+              Application Deadline: 14 October 2026
+            </p>
           </div>
 
           {/* Right-top corner: Desktop Actions */}
@@ -429,6 +435,7 @@ export default function Admin() {
                     <th className="py-3 px-3">Name</th>
                     <th className="py-3 px-3">Email</th>
                     <th className="py-3 px-3">Phone</th>
+                    <th className="py-3 px-3">LinkedIn</th>
                     <th className="py-3 px-3">College</th>
                     <th className="py-3 px-2 text-center w-20">Year</th>
                     <th className="py-3 px-3">Position / Role</th>
@@ -486,7 +493,30 @@ export default function Admin() {
                           {applicant.phone}
                         </td>
 
-                        {/* 4. College */}
+                        {/* 4. LinkedIn */}
+                        <td className="py-2.5 px-3 whitespace-nowrap">
+                          {applicant.linkedin_id ? (
+                            <a
+                              href={
+                                applicant.linkedin_id.startsWith("http")
+                                  ? applicant.linkedin_id
+                                  : `https://linkedin.com/in/${applicant.linkedin_id.replace(/^@/, "").replace(/^linkedin\.com\/in\//, "")}`
+                              }
+                              target="_blank"
+                              rel="noreferrer"
+                              className="inline-flex items-center gap-1.5 text-blue-400 hover:text-blue-300 font-medium hover:underline"
+                            >
+                              <ExternalLink className="w-3 h-3" />
+                              <span className="truncate max-w-[130px] font-mono text-[11px]">
+                                {applicant.linkedin_id.replace(/^https?:\/\/(www\.)?linkedin\.com\/in\//, "").replace(/\/$/, "")}
+                              </span>
+                            </a>
+                          ) : (
+                            <span className="text-gray-500">-</span>
+                          )}
+                        </td>
+
+                        {/* 5. College */}
                         <td className="py-2.5 px-3 whitespace-nowrap text-gray-300">
                           {applicant.college}
                         </td>

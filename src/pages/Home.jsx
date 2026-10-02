@@ -57,6 +57,15 @@ export default function Home() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0f0f13]/40 via-[#0f0f13]/70 to-[#0f0f13]/95" />
 
         <div className="relative max-w-6xl mx-auto px-6 text-center">
+          <Link
+            to="/join"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/15 border border-purple-500/35 text-purple-200 text-xs sm:text-sm font-semibold mb-6 hover:bg-purple-500/25 transition backdrop-blur-md shadow-[0_0_20px_rgba(157,78,221,0.25)] group"
+          >
+            <span className="w-2 h-2 rounded-full bg-[#ff5c93] animate-pulse" />
+            <span>Hiring 2026 Applications Open • Deadline: 14 October 2026</span>
+            <ArrowRight size={14} className="text-purple-400 group-hover:translate-x-0.5 transition-transform" />
+          </Link>
+
           <h1 className="text-5xl md:text-7xl font-black leading-tight">
             <span className="text-2xl text-[#9D4EDD]">Welcome to</span>
             <span className="block">DROID CLUB</span>
@@ -67,12 +76,20 @@ export default function Home() {
             ideas become real projects, and students grow into leaders.
           </p>
 
-          <Link
-            to="/about"
-            className="mt-8 px-10 py-3 rounded-full bg-[#9D4EDD] hover:bg-[#7B2CBF] transition font-bold flex items-center gap-2 mx-auto w-max"
-          >
-            Explore More <ArrowRight size={22} />
-          </Link>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              to="/about"
+              className="px-8 py-3 rounded-full bg-[#1a1a24] hover:bg-[#252533] border border-[#9D4EDD]/40 hover:border-[#9D4EDD] transition font-bold flex items-center gap-2 text-white"
+            >
+              Explore More <ArrowRight size={20} />
+            </Link>
+            <Link
+              to="/join"
+              className="px-8 py-3 rounded-full bg-[#9D4EDD] hover:bg-[#7B2CBF] transition font-bold flex items-center gap-2 text-white shadow-[0_0_20px_rgba(157,78,221,0.4)] hover:shadow-[0_0_30px_rgba(157,78,221,0.6)]"
+            >
+              Apply Now (Closes 14 Oct) <ArrowRight size={20} />
+            </Link>
+          </div>
 
           <div className="grid grid-cols-3 md:grid-cols-6 gap-4 mt-14">
             {IMAGES.hero.map((img, i) => (
