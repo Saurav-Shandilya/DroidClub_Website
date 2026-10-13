@@ -38,8 +38,8 @@ const ACADEMIC_YEARS = [
   "2nd Year",
 ];
 
-// Hiring / Application Deadline: 14 October 2026, 23:59:59 IST
-export const APPLICATION_DEADLINE = new Date("2026-10-14T23:59:59+05:30").getTime();
+// Hiring / Application Deadline: 15 October 2026, 23:59:59 IST
+export const APPLICATION_DEADLINE = new Date("2026-10-15T23:59:59+05:30").getTime();
 
 function calculateTimeLeft() {
   const diff = Math.max(0, APPLICATION_DEADLINE - Date.now());
@@ -54,7 +54,7 @@ function calculateTimeLeft() {
 }
 
 export default function JoinDroidClub() {
-  // Hiring / Application Countdown State (Target: 14 October 2026)
+  // Hiring / Application Countdown State (Target: 15 October 2026)
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft);
 
   useEffect(() => {
@@ -166,7 +166,7 @@ export default function JoinDroidClub() {
   const handleProceedToConfirm = (e) => {
     e.preventDefault();
     if (timeLeft.isExpired) {
-      alert("Application deadline of 14 October 2026 has passed. Registrations are now closed.");
+      alert("Application deadline of 15 October 2026 has passed. Registrations are now closed.");
       return;
     }
     if (validateForm()) {
@@ -178,7 +178,7 @@ export default function JoinDroidClub() {
   // Final submission to SheetDB
   const handleFinalSubmit = async () => {
     if (timeLeft.isExpired) {
-      setErrorMessage("The application deadline of 14 October 2026 has passed. Registrations are closed.");
+      setErrorMessage("The application deadline of 15 October 2026 has passed. Registrations are closed.");
       return;
     }
     setLoading(true);
@@ -283,7 +283,7 @@ export default function JoinDroidClub() {
         <div className="text-center mb-4 sm:mb-5">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-medium mb-2.5 sm:mb-3 backdrop-blur-md">
             <Sparkles className="w-3.5 h-3.5 text-purple-400" />
-            Droid Club hiring 2K26 • Closes 14 Oct 2026
+            Droid Club hiring 2K26 • Closes 15 Oct 2026
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-2.5 sm:mb-3">
@@ -294,7 +294,7 @@ export default function JoinDroidClub() {
           </h1>
 
           <p className="text-gray-400 text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
-            Become part of GLA University’s premier tech community. Applications are open until 14 October 2026.
+            Become part of GLA University’s premier tech community. Applications are open until 15 October 2026.
           </p>
         </div>
 
@@ -304,13 +304,13 @@ export default function JoinDroidClub() {
             {/* Heading */}
             <div className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] sm:tracking-[0.25em] text-purple-200/90 uppercase mb-2 flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#ff5c93] animate-pulse shadow-[0_0_6px_#ff5c93]" />
-              APPLICATION DEADLINE: 14 OCTOBER 2026
+              APPLICATION DEADLINE: 15 OCTOBER 2026
             </div>
 
             {timeLeft.isExpired ? (
               <div className="py-2 px-6 text-center">
                 <p className="text-[#ff5c93] font-bold text-sm sm:text-base tracking-wide">
-                  Applications Closed on 14 October 2026
+                  Applications Closed on 15 October 2026
                 </p>
               </div>
             ) : (
@@ -835,7 +835,7 @@ export default function JoinDroidClub() {
                       : "bg-gradient-to-r from-[#9D4EDD] to-[#7B2CBF] hover:from-[#8b3fd0] hover:to-[#6a22aa] shadow-[0_0_25px_rgba(157,78,221,0.4)] hover:shadow-[0_0_35px_rgba(157,78,221,0.6)] hover:-translate-y-0.5 active:translate-y-0"
                   }`}
                 >
-                  <span>{timeLeft.isExpired ? "Applications Closed (14 Oct 2026)" : "Confirm Registration"}</span>
+                  <span>{timeLeft.isExpired ? "Applications Closed (15 Oct 2026)" : "Confirm Registration"}</span>
                   {!timeLeft.isExpired && <ArrowRight className="w-5 h-5" />}
                 </button>
                 <p className="text-center text-xs text-gray-500 mt-3">
@@ -1080,7 +1080,7 @@ export default function JoinDroidClub() {
                     <span>Submitting Registration...</span>
                   </>
                 ) : timeLeft.isExpired ? (
-                  <span>Applications Closed (14 Oct 2026)</span>
+                  <span>Applications Closed (15 Oct 2026)</span>
                 ) : (
                   <>
                     <span>Submit Registration</span>

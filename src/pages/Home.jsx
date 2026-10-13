@@ -62,7 +62,7 @@ export default function Home() {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/15 border border-purple-500/35 text-purple-200 text-xs sm:text-sm font-semibold mb-6 hover:bg-purple-500/25 transition backdrop-blur-md shadow-[0_0_20px_rgba(157,78,221,0.25)] group"
           >
             <span className="w-2 h-2 rounded-full bg-[#ff5c93] animate-pulse" />
-            <span>Hiring 2026 Applications Open • Deadline: 14 October 2026</span>
+            <span>Hiring 2026 Applications Open • Deadline: 15 October 2026</span>
             <ArrowRight size={14} className="text-purple-400 group-hover:translate-x-0.5 transition-transform" />
           </Link>
 
@@ -87,7 +87,7 @@ export default function Home() {
               to="/join"
               className="px-8 py-3 rounded-full bg-[#9D4EDD] hover:bg-[#7B2CBF] transition font-bold flex items-center gap-2 text-white shadow-[0_0_20px_rgba(157,78,221,0.4)] hover:shadow-[0_0_30px_rgba(157,78,221,0.6)]"
             >
-              Apply Now (Closes 14 Oct) <ArrowRight size={20} />
+              Apply Now (Closes 15 Oct) <ArrowRight size={20} />
             </Link>
           </div>
 

@@ -325,7 +325,7 @@ export default function Admin() {
               </span>
             </h1>
             <p className="text-xs text-purple-300/80 mt-1 font-medium">
-              Application Deadline: 14 October 2026
+              Application Deadline: 15 October 2026
             </p>
           </div>
 
